@@ -23,7 +23,24 @@
     ],
     "resources": ["x64dbg", "x64dbg-docs"],
     "estimatedHours": 2,
-    "tags": ["debugger", "beginner", "x64dbg"]
+    "tags": ["debugger", "beginner", "x64dbg"],
+    "skillsRequired": ["Basic Windows usage", "Understanding of processes"],
+    "setupInstructions": [
+      "Install x64dbg from the official GitHub releases page",
+      "Download a simple target (Notepad or a crackme from crackmes.one)",
+      "Run x64dbg as Administrator if attaching to elevated processes"
+    ],
+    "hints": [
+      "Use the Symbols tab to find kernel32 exports like MessageBoxA",
+      "F9 runs, F7 steps into, F8 steps over",
+      "Right-click a register to follow in memory dump"
+    ],
+    "expectedOutcome": "You can attach to a process, set a breakpoint on a WinAPI call, inspect arguments in RCX/RDX, and step through instructions.",
+    "learningGoals": [
+      "Understand debugger attach workflow",
+      "Read x64 calling convention in practice",
+      "Correlate disassembly with runtime behavior"
+    ]
   },
   {
     "id": "lab-ce-health-scan",

@@ -1,21 +1,32 @@
+"use client";
+
 import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
 import type { Topic } from "@/types";
 import { DifficultyBadge, TagBadge } from "@/components/ui/Badge";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { MasteryDots } from "@/components/mastery/MasteryDots";
+import { useProgress } from "@/lib/hooks";
+import { getTopicMastery } from "@/lib/mastery";
 import { formatHours } from "@/lib/utils";
 
 export function TopicCard({
   topic,
   sectionSlug,
-  completed,
-  progress,
 }: {
   topic: Topic;
   sectionSlug: string;
-  completed?: boolean;
-  progress?: number;
 }) {
+  const { progress, loaded } = useProgress();
+  const completed =
+    loaded && progress.completedTopics.includes(topic.id);
+  const mastery = loaded
+    ? getTopicMastery(topic, progress)
+    : null;
+  const readProgress = loaded
+    ? progress.topicProgress[topic.id]
+    : undefined;
+
   return (
     <Link
       href={`/sections/${sectionSlug}/${topic.id}`}
@@ -38,15 +49,16 @@ export function TopicCard({
           <Clock className="h-3 w-3" />
           {formatHours(topic.estimatedHours)}
         </span>
+        {loaded && mastery && <MasteryDots mastery={mastery} />}
         {completed && (
           <span className="rounded-md bg-success/10 px-2 py-0.5 text-xs font-medium text-success">
             Completed
           </span>
         )}
       </div>
-      {progress !== undefined && progress > 0 && progress < 100 && (
+      {readProgress !== undefined && readProgress > 0 && readProgress < 100 && !completed && (
         <div className="mt-3">
-          <ProgressBar value={progress} />
+          <ProgressBar value={readProgress} showLabel={false} />
         </div>
       )}
       <div className="mt-3 flex flex-wrap gap-1.5">

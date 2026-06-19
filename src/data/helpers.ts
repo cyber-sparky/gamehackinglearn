@@ -1,4 +1,4 @@
-import type { Resource } from "@/types";
+import type { Resource, RawTopic } from "@/types";
 
 export function res(
   id: string,
@@ -39,7 +39,7 @@ export function topicTemplate(
     videos?: Resource[];
     labs?: string[];
   } = {}
-) {
+): RawTopic {
   return {
     id,
     title,

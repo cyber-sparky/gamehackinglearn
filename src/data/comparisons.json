@@ -1,0 +1,48 @@
+[
+  {
+    "id": "dbg-compare",
+    "title": "x64dbg vs WinDbg",
+    "description": "When to use each Windows debugger for game RE research.",
+    "columns": ["Feature", "x64dbg", "WinDbg"],
+    "rows": [
+      {"feature": "Primary use", "values": ["User-mode game debugging", "Kernel, drivers, crash dumps"]},
+      {"feature": "UI", "values": ["GUI-first, beginner friendly", "Command-driven, steep learning curve"]},
+      {"feature": "Attach to game", "values": ["Excellent", "Good (user-mode)"]},
+      {"feature": "Kernel debugging", "values": ["No", "Yes"]},
+      {"feature": "Symbols", "values": ["PDB via Symbols tab", ".symfix / .reload workflow"]},
+      {"feature": "Scripting", "values": ["Plugins, limited scripts", "Powerful debugger commands"]},
+      {"feature": "Best for", "values": ["Labs, breakpoints, memory", "AC drivers, syscalls, TTD"]}
+    ],
+    "relatedTopicIds": ["x64dbg", "windbg"]
+  },
+  {
+    "id": "unity-compare",
+    "title": "Unity Mono vs IL2CPP",
+    "description": "How to identify and analyze each Unity scripting backend.",
+    "columns": ["Aspect", "Mono", "IL2CPP"],
+    "rows": [
+      {"feature": "Managed DLL", "values": ["Assembly-CSharp.dll present", "No readable C# DLL"]},
+      {"feature": "Native module", "values": ["mono.dll / UnityPlayer", "GameAssembly.dll"]},
+      {"feature": "Metadata", "values": ["Embedded in DLL", "global-metadata.dat"]},
+      {"feature": "Primary tool", "values": ["dnSpy / ILSpy", "Il2CppDumper + Ghidra"]},
+      {"feature": "Output quality", "values": ["Near-original C#", "Pseudocode + generated names"]},
+      {"feature": "Difficulty", "values": ["Intermediate", "Advanced"]}
+    ],
+    "relatedTopicIds": ["unity-mono", "unity-il2cpp"]
+  },
+  {
+    "id": "scan-compare",
+    "title": "CE Scan Types",
+    "description": "Which Cheat Engine scan to use in common situations.",
+    "columns": ["Situation", "Scan type", "Notes"],
+    "rows": [
+      {"feature": "Know exact health value", "values": ["Exact value", "Fastest path"]},
+      {"feature": "Unknown starting ammo", "values": ["Unknown initial → changed", "Filter by increased/decreased"]},
+      {"feature": "Float with rounding", "values": ["Fuzzy scan", "Tolerance for precision"]},
+      {"feature": "Find code not value", "values": ["Find what writes", "Use debugger after narrowing"]},
+      {"feature": "Stable after restart", "values": ["Pointer scan", "Module-relative base required"]},
+      {"feature": "Signature in module", "values": ["AOB / pattern", "Wildcards for relocations"]}
+    ],
+    "relatedTopicIds": ["exact-scans", "unknown-scans", "pattern-scanning", "pointer-chains"]
+  }
+]

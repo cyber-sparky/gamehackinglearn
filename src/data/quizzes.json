@@ -1,0 +1,134 @@
+{
+  "process-memory": [
+    {
+      "id": "process-memory-q1",
+      "question": "What does each process have in Windows?",
+      "options": [
+        "A shared address space with all other processes",
+        "Its own virtual address space",
+        "Direct physical memory access only",
+        "No memory isolation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each Windows process has its own private virtual address space, typically up to user-mode limits on x64."
+    },
+    {
+      "id": "process-memory-q2",
+      "question": "Why do absolute addresses change between game restarts?",
+      "options": [
+        "ASLR randomizes module base addresses",
+        "Games delete memory on exit",
+        "Windows disables virtual memory",
+        "Cheat Engine causes address changes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Address Space Layout Randomization (ASLR) randomizes where modules load, making absolute addresses unstable."
+    },
+    {
+      "id": "process-memory-q3",
+      "question": "A stable pointer chain typically starts with:",
+      "options": [
+        "A random heap address only",
+        "A module-relative static base + offsets",
+        "The stack pointer exclusively",
+        "A kernel address"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pointer chains anchor to module bases (e.g. game.exe+offset) which are stable relative to the module load address."
+    }
+  ],
+  "pe-files": [
+    {
+      "id": "pe-files-q1",
+      "question": "The DOS header magic number in a PE file is:",
+      "options": ["PE", "MZ", "ELF", "CAFE"],
+      "correctIndex": 1,
+      "explanation": "MZ (0x5A4D) identifies the DOS stub header in PE executables."
+    },
+    {
+      "id": "pe-files-q2",
+      "question": "The Import Address Table (IAT) is used to:",
+      "options": [
+        "Store pixel shader code",
+        "Resolve calls to external DLL functions",
+        "Compress the executable",
+        "Encrypt the entry point"
+      ],
+      "correctIndex": 1,
+      "explanation": "The IAT holds addresses of imported functions resolved at load time or via delay-load."
+    },
+    {
+      "id": "pe-files-q3",
+      "question": "Which flag indicates ASLR is enabled?",
+      "options": [
+        "IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE",
+        "IMAGE_DLLCHARACTERISTICS_NX_COMPAT only",
+        "IMAGE_FILE_DEBUG_STRIPPED",
+        "IMAGE_SCN_MEM_EXECUTE only"
+      ],
+      "correctIndex": 0,
+      "explanation": "DYNAMIC_BASE in the DLL characteristics enables ASLR for the image."
+    }
+  ],
+  "x64dbg": [
+    {
+      "id": "x64dbg-q1",
+      "question": "In x64 Windows calling convention, the first integer argument is passed in:",
+      "options": ["RAX", "RCX", "RSP", "RIP"],
+      "correctIndex": 1,
+      "explanation": "Microsoft x64 passes the first four integer/pointer args in RCX, RDX, R8, R9."
+    },
+    {
+      "id": "x64dbg-q2",
+      "question": "F8 in x64dbg typically:",
+      "options": ["Steps into a call", "Steps over a call", "Runs until return", "Patches memory"],
+      "correctIndex": 1,
+      "explanation": "F8 is Step Over — executes the current instruction without entering calls."
+    },
+    {
+      "id": "x64dbg-q3",
+      "question": "A software breakpoint works by:",
+      "options": [
+        "Using DR0-DR3 registers",
+        "Replacing an instruction byte with 0xCC (INT3)",
+        "Pausing the OS scheduler",
+        "Hooking the kernel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Software breakpoints patch the target instruction with INT3 (0xCC)."
+    }
+  ],
+  "exact-scans": [
+    {
+      "id": "exact-scans-q1",
+      "question": "An exact value scan in Cheat Engine is best when:",
+      "options": [
+        "You know the precise value displayed in-game",
+        "The value is always unknown",
+        "You want to scan the kernel",
+        "The game is server-authoritative only"
+      ],
+      "correctIndex": 0,
+      "explanation": "Exact scans narrow results when you know the current value (e.g. health = 100)."
+    },
+    {
+      "id": "exact-scans-q2",
+      "question": "After taking damage, you should scan for:",
+      "options": ["Increased value", "Decreased value", "Unchanged only", "String value"],
+      "correctIndex": 1,
+      "explanation": "If health decreased, filter with a decreased/changed scan to narrow addresses."
+    },
+    {
+      "id": "exact-scans-q3",
+      "question": "Multiple addresses after scanning often means:",
+      "options": [
+        "CE is broken",
+        "Several memory locations hold similar values",
+        "The game has no real health variable",
+        "You must reinstall Windows"
+      ],
+      "correctIndex": 1,
+      "explanation": "UI copies, cached values, and unrelated data can share the same numeric value."
+    }
+  ]
+}

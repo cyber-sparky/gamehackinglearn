@@ -1,0 +1,124 @@
+[
+  {
+    "id": "dl-windows-internals-book",
+    "title": "Windows Internals (7th Edition) — Sample Chapter",
+    "description": "Official Microsoft Press sample chapter on process and thread internals.",
+    "category": "Research Papers",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals",
+    "fileType": "PDF",
+    "tags": ["windows", "internals", "book"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "dl-pe-format-spec",
+    "title": "Microsoft PE Format Specification",
+    "description": "Official documentation for Portable Executable and Common Object File Format.",
+    "category": "Reference Material",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format",
+    "fileType": "Web",
+    "tags": ["pe", "format", "microsoft"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "dl-assaultcube",
+    "title": "AssaultCube (Practice Target)",
+    "description": "Open-source FPS used in labs for memory scanning and network analysis practice.",
+    "category": "Practice Targets",
+    "url": "https://assault.cubers.net/download.html",
+    "fileType": "Installer",
+    "size": "~50 MB",
+    "tags": ["practice", "fps", "open-source"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "dl-crackmes",
+    "title": "crackmes.one",
+    "description": "Community crackme challenges ranked by difficulty for RE practice.",
+    "category": "Practice Targets",
+    "url": "https://crackmes.one/",
+    "fileType": "Web",
+    "tags": ["crackme", "practice", "reversing"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "dl-ghidra",
+    "title": "Ghidra",
+    "description": "NSA reverse engineering suite — free download from official site.",
+    "category": "Open Source Projects",
+    "url": "https://ghidra-sre.org/",
+    "fileType": "ZIP",
+    "size": "~400 MB",
+    "tags": ["ghidra", "disassembler", "free"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "dl-x64dbg",
+    "title": "x64dbg",
+    "description": "Open-source Windows debugger for x32 and x64 applications.",
+    "category": "Open Source Projects",
+    "url": "https://x64dbg.com/#start",
+    "fileType": "Installer",
+    "tags": ["debugger", "x64dbg", "free"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "dl-il2cppdumper",
+    "title": "Il2CppDumper",
+    "description": "Unity IL2CPP metadata dumper — generates script.json and dummy DLL for analysis.",
+    "category": "Open Source Projects",
+    "url": "https://github.com/Perfare/Il2CppDumper",
+    "fileType": "GitHub",
+    "tags": ["unity", "il2cpp", "dumper"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "dl-reclass-net",
+    "title": "ReClass.NET",
+    "description": "Memory structure editor for reverse engineering class layouts in live processes.",
+    "category": "Open Source Projects",
+    "url": "https://github.com/ReClassNET/ReClass.NET",
+    "fileType": "GitHub",
+    "tags": ["reclass", "structures", "memory"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "dl-ce-tables-assault",
+    "title": "AssaultCube CE Table (Community)",
+    "description": "Example Cheat Engine table for learning pointer scans on AssaultCube.",
+    "category": "Cheat Engine Tables",
+    "url": "https://github.com/search?q=assaultcube+cheat+engine+table&type=repositories",
+    "fileType": "CT",
+    "tags": ["cheat-engine", "assaultcube", "pointers"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "dl-guided-hacking-repo",
+    "title": "Game Hacking Educational Repos",
+    "description": "Curated open-source educational repositories for RE and game analysis.",
+    "category": "Example Repositories",
+    "url": "https://github.com/topics/reverse-engineering",
+    "fileType": "GitHub",
+    "tags": ["github", "educational", "repositories"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "dl-anticheat-whitepaper",
+    "title": "BattlEye Architecture Overview (Public Research)",
+    "description": "Community research notes on kernel anti-cheat callback architecture.",
+    "category": "Whitepapers",
+    "url": "https://secret.club/2020/04/13/how-anti-cheats-work.html",
+    "fileType": "Web",
+    "tags": ["anti-cheat", "kernel", "research"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "dl-sysinternals-suite",
+    "title": "Sysinternals Suite",
+    "description": "Microsoft Sysinternals tools for process, handle, and memory analysis.",
+    "category": "Reference Material",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite",
+    "fileType": "ZIP",
+    "tags": ["sysinternals", "process-hacker", "tools"],
+    "difficulty": "intermediate"
+  }
+]

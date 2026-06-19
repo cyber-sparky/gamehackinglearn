@@ -8,18 +8,25 @@ import {
   Wrench,
   Layers,
   Clock,
+  LayoutDashboard,
+  Route,
+  Code,
+  Video,
 } from "lucide-react";
 import {
   sections,
-  getAllTopics,
   getTotalEstimatedHours,
   labs,
   tools,
   resources,
   roadmaps,
+  learningPaths,
+  snippets,
+  videos,
 } from "@/data";
 import { getTopicCount } from "@/lib/search";
 import { HomeProgress } from "@/components/content/HomeProgress";
+import { HomeContinue } from "@/components/content/HomeContinue";
 
 export default function HomePage() {
   const topicCount = getTopicCount();
@@ -50,15 +57,23 @@ export default function HomePage() {
               Start Learning <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="/roadmaps"
+              href="/dashboard"
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted-bg"
             >
-              <Map className="h-4 w-4" /> View Roadmaps
+              <LayoutDashboard className="h-4 w-4" /> Dashboard
+            </Link>
+            <Link
+              href="/learning-paths"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted-bg"
+            >
+              <Route className="h-4 w-4" /> Learning Paths
             </Link>
           </div>
         </div>
         <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent/5 blur-3xl" />
       </section>
+
+      <HomeContinue />
 
       <section className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
         {[
@@ -159,6 +174,38 @@ export default function HomePage() {
           </div>
         </Link>
         <Link
+          href="/snippets"
+          className="group flex items-center gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-accent/30"
+        >
+          <div className="rounded-lg bg-accent/10 p-3">
+            <Code className="h-6 w-6 text-accent" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground group-hover:text-accent">
+              Code Snippets
+            </h3>
+            <p className="text-sm text-muted">
+              {snippets.length} copy-ready WinAPI, C++, and RE helpers
+            </p>
+          </div>
+        </Link>
+        <Link
+          href="/videos"
+          className="group flex items-center gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-accent/30"
+        >
+          <div className="rounded-lg bg-accent/10 p-3">
+            <Video className="h-6 w-6 text-accent" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground group-hover:text-accent">
+              Video Library
+            </h3>
+            <p className="text-sm text-muted">
+              {videos.length} curated tutorials across all topics
+            </p>
+          </div>
+        </Link>
+        <Link
           href="/roadmaps"
           className="group flex items-center gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-accent/30"
         >
@@ -171,6 +218,22 @@ export default function HomePage() {
             </h3>
             <p className="text-sm text-muted">
               {roadmaps.length} interactive dependency graphs
+            </p>
+          </div>
+        </Link>
+        <Link
+          href="/learning-paths"
+          className="group flex items-center gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-accent/30"
+        >
+          <div className="rounded-lg bg-accent/10 p-3">
+            <Route className="h-6 w-6 text-accent" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground group-hover:text-accent">
+              Learning Paths
+            </h3>
+            <p className="text-sm text-muted">
+              {learningPaths.length} structured curricula with progress tracking
             </p>
           </div>
         </Link>

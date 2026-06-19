@@ -5,6 +5,11 @@ import {
   resources,
   labs,
   roadmaps,
+  snippets,
+  videos,
+  downloads,
+  research,
+  learningPaths,
   getAllTopics,
 } from "@/data";
 import type { SearchResult } from "@/types";
@@ -75,6 +80,61 @@ function buildSearchIndex(): SearchResult[] {
       description: roadmap.description,
       href: `/roadmaps/${roadmap.slug}`,
       tags: [roadmap.slug],
+    });
+  }
+
+  for (const snippet of snippets) {
+    results.push({
+      id: snippet.id,
+      title: snippet.title,
+      type: "snippet",
+      description: snippet.description,
+      href: `/snippets#${snippet.id}`,
+      tags: [...snippet.tags, snippet.category],
+    });
+  }
+
+  for (const video of videos) {
+    results.push({
+      id: video.id,
+      title: video.title,
+      type: "video",
+      description: video.description,
+      href: `/videos#${video.id}`,
+      tags: [...video.tags, video.topic],
+    });
+  }
+
+  for (const item of downloads) {
+    results.push({
+      id: item.id,
+      title: item.title,
+      type: "download",
+      description: item.description,
+      href: `/downloads#${item.id}`,
+      tags: [...item.tags, item.category],
+    });
+  }
+
+  for (const item of research) {
+    results.push({
+      id: item.id,
+      title: item.title,
+      type: "research",
+      description: item.description,
+      href: `/research#${item.id}`,
+      tags: [...item.tags, item.type],
+    });
+  }
+
+  for (const path of learningPaths) {
+    results.push({
+      id: path.id,
+      title: path.title,
+      type: "path",
+      description: path.description,
+      href: `/learning-paths/${path.slug}`,
+      tags: [path.slug, path.difficulty],
     });
   }
 

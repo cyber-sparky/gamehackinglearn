@@ -1,7 +1,7 @@
-import type { Section } from "@/types";
-import { res, topicTemplate } from "../helpers";
+import type { RawSection } from "@/types";
+import { topicTemplate } from "../helpers";
 
-export const windowsInternalsSection: Section = {
+export const windowsInternalsSection: RawSection = {
   id: "windows-internals",
   slug: "windows-internals",
   title: "Windows Internals",

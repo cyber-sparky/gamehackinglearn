@@ -65,6 +65,36 @@ export function ToolCard({ tool }: { tool: Tool }) {
             </ul>
           </div>
         )}
+        {tool.downloadLink && (
+          <a
+            href={tool.downloadLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-accent hover:underline"
+          >
+            Download <ExternalLink className="h-3 w-3" />
+          </a>
+        )}
+        {tool.useCases && tool.useCases.length > 0 && (
+          <div>
+            <p className="text-xs font-medium uppercase text-muted">Use Cases</p>
+            <ul className="mt-1 space-y-0.5">
+              {tool.useCases.map((uc, i) => (
+                <li key={i} className="text-sm text-muted">• {uc}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {tool.alternatives && tool.alternatives.length > 0 && (
+          <p className="text-xs text-muted">
+            Alternatives: {tool.alternatives.join(", ")}
+          </p>
+        )}
+        {tool.relatedTools && tool.relatedTools.length > 0 && (
+          <p className="text-xs text-muted">
+            Related: {tool.relatedTools.join(", ")}
+          </p>
+        )}
       </div>
       <div className="mt-3 flex flex-wrap gap-1.5">
         {tool.tags.map((tag) => (

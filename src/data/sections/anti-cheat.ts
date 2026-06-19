@@ -1,7 +1,7 @@
-import type { Section } from "@/types";
-import { res, topicTemplate } from "../helpers";
+import type { RawSection } from "@/types";
+import { topicTemplate } from "../helpers";
 
-export const antiCheatSection: Section = {
+export const antiCheatSection: RawSection = {
   id: "anti-cheat",
   slug: "anti-cheat",
   title: "Anti-Cheat Research",

@@ -29,6 +29,11 @@ export function ResourceCard({ resource }: { resource: Resource }) {
               {resource.cost}
             </span>
             <DifficultyBadge difficulty={resource.difficulty} />
+            {resource.rating != null && resource.rating > 0 && (
+              <span className="rounded-md bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
+                ★ {resource.rating}/5
+              </span>
+            )}
           </div>
           <h3 className="mt-2 font-semibold text-foreground">{resource.title}</h3>
           <p className="mt-1 text-sm text-muted">{resource.description}</p>

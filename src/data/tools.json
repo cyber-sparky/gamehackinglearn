@@ -8,7 +8,11 @@
     "documentation": "https://ghidra-sre.org/CheatSheet.html",
     "tutorials": ["https://ghidra-sre.org/courses/GhidraClass/AdvancedDevelopment/GhidraAdvancedDevelopment.html"],
     "description": "NSA-developed free reverse engineering suite with decompiler, scripting, and collaborative features.",
-    "tags": ["disassembler", "decompiler", "free", "static-analysis"]
+    "tags": ["disassembler", "decompiler", "free", "static-analysis"],
+    "downloadLink": "https://github.com/NationalSecurityAgency/ghidra/releases",
+    "useCases": ["Static binary analysis", "Decompilation to pseudo-C", "Malware triage", "Firmware RE"],
+    "alternatives": ["IDA Pro", "Binary Ninja", "Cutter"],
+    "relatedTools": ["x64dbg", "detect-it-easy", "pe-bear"]
   },
   {
     "id": "ida-free",
@@ -41,7 +45,11 @@
     "documentation": "https://help.x64dbg.com/",
     "tutorials": ["https://www.youtube.com/results?search_query=x64dbg+tutorial"],
     "description": "Open-source Windows debugger for dynamic analysis of 32/64-bit applications.",
-    "tags": ["debugger", "dynamic-analysis", "free"]
+    "tags": ["debugger", "dynamic-analysis", "free"],
+    "downloadLink": "https://github.com/x64dbg/x64dbg/releases",
+    "useCases": ["Dynamic analysis", "Breakpoint debugging", "Memory inspection", "API tracing"],
+    "alternatives": ["WinDbg", "OllyDbg", "Cheat Engine debugger"],
+    "relatedTools": ["ghidra", "process-hacker"]
   },
   {
     "id": "cheat-engine",

@@ -1,0 +1,16 @@
+{
+  "name": "Game Hacking Roadmap",
+  "short_name": "GH Roadmap",
+  "description": "Free game reverse engineering and security research learning platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

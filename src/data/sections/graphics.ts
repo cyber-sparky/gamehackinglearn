@@ -1,7 +1,7 @@
-import type { Section } from "@/types";
+import type { RawSection } from "@/types";
 import { res, topicTemplate } from "../helpers";
 
-export const graphicsSection: Section = {
+export const graphicsSection: RawSection = {
   id: "graphics",
   slug: "graphics",
   title: "Graphics Fundamentals",

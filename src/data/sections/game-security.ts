@@ -1,7 +1,7 @@
-import type { Section } from "@/types";
+import type { RawSection } from "@/types";
 import { res, topicTemplate } from "../helpers";
 
-export const gameSecuritySection: Section = {
+export const gameSecuritySection: RawSection = {
   id: "game-security",
   slug: "game-security",
   title: "Game Security Research",
