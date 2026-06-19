@@ -1,0 +1,144 @@
+{
+  "id": "networking",
+  "slug": "networking",
+  "title": "Networking",
+  "description": "Game network protocols and packet analysis.",
+  "icon": "Network",
+  "order": 12,
+  "topics": [
+    {
+      "id": "tcp-udp",
+      "title": "TCP & UDP",
+      "slug": "tcp-udp",
+      "description": "Transport protocols in multiplayer games.",
+      "explanation": "TCP — reliable, ordered (login, chat, file transfer)\nUDP — fast, unreliable (position updates, shots)\n\nGames often use UDP with custom reliability layers.",
+      "learningPath": [
+        "Read the overview and core concepts for TCP & UDP",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "tcp",
+        "udp",
+        "networking"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining TCP & UDP in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "packet-structures",
+      "title": "Packet Structures",
+      "slug": "packet-structures",
+      "description": "Designing and reverse engineering packet layouts.",
+      "explanation": "Typical packet: header (opcode, size, sequence) + payload.\n\nRE workflow: capture → identify patterns → correlate with game actions → map fields.",
+      "learningPath": [
+        "Read the overview and core concepts for Packet Structures",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "packets",
+        "protocol"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Packet Structures in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "serialization",
+      "title": "Serialization",
+      "slug": "serialization",
+      "description": "How games encode data for network.",
+      "explanation": "Common formats: protobuf, flatbuffers, bitstreams, custom binary. Look for serialize/deserialize functions via strings and xrefs.",
+      "learningPath": [
+        "Read the overview and core concepts for Serialization",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "serialization"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Serialization in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "protocol-analysis",
+      "title": "Protocol Analysis",
+      "slug": "protocol-analysis",
+      "description": "Full protocol RE workflow.",
+      "explanation": "Tools: Wireshark (with dissectors), WPE Pro (legacy), custom parsers.\n\nPractice on open-source multiplayer games with documented protocols.",
+      "learningPath": [
+        "Read the overview and core concepts for Protocol Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 12,
+      "tags": [
+        "protocol",
+        "analysis"
+      ],
+      "resources": [
+        {
+          "id": "wireshark",
+          "title": "Wireshark",
+          "url": "https://www.wireshark.org/",
+          "type": "tool",
+          "description": "Network protocol analyzer",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [
+        "lab-packet-analysis"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Protocol Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "id": "debugging",
+  "slug": "debugging",
+  "title": "Debugging",
+  "description": "Master debuggers for dynamic game analysis.",
+  "icon": "Bug",
+  "order": 5,
+  "topics": [
+    {
+      "id": "x64dbg",
+      "title": "x64dbg",
+      "slug": "x64dbg",
+      "description": "Primary user-mode debugger for Windows games.",
+      "explanation": "x64dbg features:\n- Intuitive GUI, memory map, symbols\n- Conditional breakpoints, logging\n- Plugin ecosystem (Scylla, xAnalyzer)\n- Separate x32/x64 versions\n\nWorkflow: attach → set BP on API/string → run → inspect registers/stack/memory.",
+      "learningPath": [
+        "Read the overview and core concepts for x64dbg",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 12,
+      "tags": [
+        "x64dbg",
+        "debugger"
+      ],
+      "resources": [
+        {
+          "id": "x64dbg",
+          "title": "x64dbg",
+          "url": "https://x64dbg.com/",
+          "type": "tool",
+          "description": "Open source debugger",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "x64dbg-docs",
+          "title": "x64dbg Documentation",
+          "url": "https://help.x64dbg.com/",
+          "type": "documentation",
+          "description": "Official docs",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [
+        "lab-x64dbg-intro"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining x64dbg in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "windbg",
+      "title": "WinDbg",
+      "slug": "windbg",
+      "description": "Advanced Windows debugging with extensions.",
+      "explanation": "WinDbg debugs user and kernel mode:\n- `.symfix`, `.reload` for symbols\n- `!heap`, `!address` for memory\n- Time Travel Debugging (TTD)\n- Kernel debugging for driver research\n\nEssential for crash analysis and deep internals.",
+      "learningPath": [
+        "Read the overview and core concepts for WinDbg",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 20,
+      "tags": [
+        "windbg",
+        "debugger"
+      ],
+      "resources": [
+        {
+          "id": "windbg",
+          "title": "WinDbg Documentation",
+          "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/",
+          "type": "documentation",
+          "description": "Microsoft debugger docs",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining WinDbg in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "ce-debugger",
+      "title": "Cheat Engine Debugger",
+      "slug": "ce-debugger",
+      "description": "Integrated debugging in Cheat Engine.",
+      "explanation": "CE's debugger integrates with memory scanning:\n- Break and trace (find what writes/accesses)\n- Debugger attach with VEH debugger option\n- Auto assembler for patches (research VMs)\n\nBest for correlating memory values with code.",
+      "learningPath": [
+        "Read the overview and core concepts for Cheat Engine Debugger",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [
+        "x64dbg"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "cheat-engine",
+        "debugger"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-ce-pointer"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Cheat Engine Debugger in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "hw-breakpoints",
+      "title": "Hardware Breakpoints",
+      "slug": "hw-breakpoints",
+      "description": "DR0-DR3 debug registers.",
+      "explanation": "CPU debug registers break on execute/read/write at addresses. Limited to 4 active breakpoints. Bypass some anti-debug that checks for INT3 (0xCC).\n\nSet in x64dbg: Breakpoint → Hardware, Access.",
+      "learningPath": [
+        "Read the overview and core concepts for Hardware Breakpoints",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "breakpoints",
+        "hardware"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Hardware Breakpoints in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "sw-breakpoints",
+      "title": "Software Breakpoints",
+      "slug": "sw-breakpoints",
+      "description": "INT3 (0xCC) patching.",
+      "explanation": "Debugger replaces instruction byte with 0xCC. Original restored on continue. Detectable by integrity checks. Use hardware BPs when SW BPs are cleared.",
+      "learningPath": [
+        "Read the overview and core concepts for Software Breakpoints",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 3,
+      "tags": [
+        "breakpoints",
+        "software"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Software Breakpoints in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "memory-tracing",
+      "title": "Memory Tracing",
+      "slug": "memory-tracing",
+      "description": "Find what accesses/writes memory.",
+      "explanation": "Techniques:\n- CE 'Find what writes to this address'\n- Hardware watchpoints\n- Page guard exceptions\n- x64dbg memory breakpoints\n\nTrace back from known value to setter function.",
+      "learningPath": [
+        "Read the overview and core concepts for Memory Tracing",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "tracing",
+        "memory"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-memory-trace"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Memory Tracing in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "exception-handling",
+      "title": "Exception Handling",
+      "slug": "exception-handling",
+      "description": "SEH, VEH, and debugger interaction.",
+      "explanation": "Windows uses Structured Exception Handling (SEH linked list) and Vectored Exception Handlers. Debuggers intercept exceptions first.\n\nAnti-debug may use SEH for timing checks. Understand exception flow for analysis.",
+      "learningPath": [
+        "Read the overview and core concepts for Exception Handling",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "windows-internals-intro"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "exceptions",
+        "seh"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Exception Handling in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

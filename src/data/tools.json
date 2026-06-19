@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ghidra",
+    "name": "Ghidra",
+    "category": "Disassembler",
+    "difficulty": "intermediate",
+    "website": "https://ghidra-sre.org/",
+    "documentation": "https://ghidra-sre.org/CheatSheet.html",
+    "tutorials": ["https://ghidra-sre.org/courses/GhidraClass/AdvancedDevelopment/GhidraAdvancedDevelopment.html"],
+    "description": "NSA-developed free reverse engineering suite with decompiler, scripting, and collaborative features.",
+    "tags": ["disassembler", "decompiler", "free", "static-analysis"]
+  },
+  {
+    "id": "ida-free",
+    "name": "IDA Free",
+    "category": "Disassembler",
+    "difficulty": "intermediate",
+    "website": "https://hex-rays.com/ida-free/",
+    "documentation": "https://hex-rays.com/documentation/",
+    "tutorials": ["https://www.youtube.com/results?search_query=ida+pro+tutorial+beginner"],
+    "description": "Industry-standard disassembler with limited free version for non-commercial use.",
+    "tags": ["disassembler", "static-analysis"]
+  },
+  {
+    "id": "binary-ninja",
+    "name": "Binary Ninja",
+    "category": "Disassembler",
+    "difficulty": "intermediate",
+    "website": "https://binary.ninja/",
+    "documentation": "https://docs.binary.ninja/",
+    "tutorials": ["https://docs.binary.ninja/guide/index.html"],
+    "description": "Modern reverse engineering platform with HLIL/MLIL/LLIL intermediate languages.",
+    "tags": ["disassembler", "decompiler"]
+  },
+  {
+    "id": "x64dbg",
+    "name": "x64dbg",
+    "category": "Debugger",
+    "difficulty": "beginner",
+    "website": "https://x64dbg.com/",
+    "documentation": "https://help.x64dbg.com/",
+    "tutorials": ["https://www.youtube.com/results?search_query=x64dbg+tutorial"],
+    "description": "Open-source Windows debugger for dynamic analysis of 32/64-bit applications.",
+    "tags": ["debugger", "dynamic-analysis", "free"]
+  },
+  {
+    "id": "cheat-engine",
+    "name": "Cheat Engine",
+    "category": "Memory Scanner",
+    "difficulty": "beginner",
+    "website": "https://www.cheatengine.org/",
+    "documentation": "https://wiki.cheatengine.org/",
+    "tutorials": ["https://wiki.cheatengine.org/index.php?title=Tutorials"],
+    "description": "Memory scanner and debugger for analyzing process memory in educational contexts.",
+    "tags": ["memory", "scanner", "debugger"]
+  },
+  {
+    "id": "pe-bear",
+    "name": "PE-bear",
+    "category": "PE Analyzer",
+    "difficulty": "beginner",
+    "website": "https://github.com/hasherezade/pe-bear",
+    "documentation": "https://github.com/hasherezade/pe-bear/releases",
+    "tutorials": ["https://www.youtube.com/results?search_query=pe-bear+tutorial"],
+    "description": "Portable Executable file analyzer for inspecting headers, sections, imports, and exports.",
+    "tags": ["pe", "binary", "static-analysis"]
+  },
+  {
+    "id": "detect-it-easy",
+    "name": "Detect It Easy",
+    "category": "Binary Identifier",
+    "difficulty": "beginner",
+    "website": "https://github.com/horsicq/Detect-It-Easy",
+    "documentation": "https://github.com/horsicq/Detect-It-Easy/wiki",
+    "tutorials": [],
+    "description": "Identifies packers, compilers, and signatures in executable files.",
+    "tags": ["pe", "identification"]
+  },
+  {
+    "id": "reclass-net",
+    "name": "ReClass.NET",
+    "category": "Memory Editor",
+    "difficulty": "intermediate",
+    "website": "https://github.com/ReClassNET/ReClass.NET",
+    "documentation": "https://github.com/ReClassNET/ReClass.NET/wiki",
+    "tutorials": ["https://www.youtube.com/results?search_query=reclass.net+tutorial"],
+    "description": "Memory structure editor for reverse engineering class layouts in running processes.",
+    "tags": ["memory", "structures"]
+  },
+  {
+    "id": "renderdoc",
+    "name": "RenderDoc",
+    "category": "Graphics Debugger",
+    "difficulty": "intermediate",
+    "website": "https://renderdoc.org/",
+    "documentation": "https://renderdoc.org/docs/index.html",
+    "tutorials": ["https://renderdoc.org/docs/getting_started/index.html"],
+    "description": "Cross-API graphics debugger for capturing and analyzing rendered frames.",
+    "tags": ["graphics", "directx", "vulkan", "opengl"]
+  },
+  {
+    "id": "wireshark",
+    "name": "Wireshark",
+    "category": "Network Analyzer",
+    "difficulty": "beginner",
+    "website": "https://www.wireshark.org/",
+    "documentation": "https://www.wireshark.org/docs/",
+    "tutorials": ["https://www.wireshark.org/docs/wsug_html_chunked/"],
+    "description": "Network protocol analyzer for capturing and inspecting game network traffic.",
+    "tags": ["networking", "packets"]
+  },
+  {
+    "id": "windbg",
+    "name": "WinDbg",
+    "category": "Debugger",
+    "difficulty": "advanced",
+    "website": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/",
+    "documentation": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools",
+    "tutorials": ["https://www.youtube.com/results?search_query=windbg+tutorial"],
+    "description": "Microsoft debugger for user-mode, kernel-mode, and crash dump analysis.",
+    "tags": ["debugger", "kernel", "advanced"]
+  },
+  {
+    "id": "il2cppdumper",
+    "name": "Il2CppDumper",
+    "category": "Unity Tool",
+    "difficulty": "intermediate",
+    "website": "https://github.com/Perfare/Il2CppDumper",
+    "documentation": "https://github.com/Perfare/Il2CppDumper#readme",
+    "tutorials": [],
+    "description": "Unity IL2CPP metadata dumper for Ghidra/IDA script generation.",
+    "tags": ["unity", "il2cpp"]
+  },
+  {
+    "id": "dnspy",
+    "name": "dnSpy",
+    "category": "Decompiler",
+    "difficulty": "beginner",
+    "website": "https://github.com/dnSpy/dnSpy",
+    "documentation": "https://github.com/dnSpy/dnSpy/wiki",
+    "tutorials": [],
+    "description": ".NET debugger and assembly editor for Unity Mono and managed code analysis.",
+    "tags": ["dotnet", "unity", "mono", "decompiler"]
+  },
+  {
+    "id": "process-hacker",
+    "name": "Process Hacker",
+    "category": "System Monitor",
+    "difficulty": "beginner",
+    "website": "https://processhacker.sourceforge.io/",
+    "documentation": "https://processhacker.sourceforge.io/doc/",
+    "tutorials": [],
+    "description": "Advanced process viewer for inspecting memory, threads, handles, and modules.",
+    "tags": ["process", "memory", "windows"]
+  },
+  {
+    "id": "godbolt",
+    "name": "Compiler Explorer",
+    "category": "Learning Tool",
+    "difficulty": "beginner",
+    "website": "https://godbolt.org/",
+    "documentation": "https://github.com/compiler-explorer/compiler-explorer",
+    "tutorials": [],
+    "description": "Interactive compiler explorer to see C/C++ code compile to assembly in real time.",
+    "tags": ["assembly", "cpp", "learning"]
+  }
+]

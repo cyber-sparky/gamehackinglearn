@@ -1,0 +1,238 @@
+{
+  "id": "memory-analysis",
+  "slug": "memory-analysis",
+  "title": "Memory Analysis",
+  "description": "Techniques for reading, scanning, and interpreting game memory.",
+  "icon": "MemoryStick",
+  "order": 7,
+  "topics": [
+    {
+      "id": "reading-memory",
+      "title": "Reading Memory",
+      "slug": "reading-memory",
+      "description": "Safe and effective memory reading techniques.",
+      "explanation": "ReadProcessMemory (external) or direct pointer dereference (internal/injected). Alignment matters for multi-byte types. Endianness: x86/x64 is little-endian.\n\nDocument values at rest vs during gameplay — many game values are transient.",
+      "learningPath": [
+        "Read the overview and core concepts for Reading Memory",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "memory",
+        "reading"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Reading Memory in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "memory-layouts",
+      "title": "Memory Layouts",
+      "slug": "memory-layouts",
+      "description": "How game data is organized in memory.",
+      "explanation": "Typical layout:\n- Global singletons in .data\n- Entity arrays/pools on heap\n- Stack locals per frame\n- GPU resources in separate heaps\n\nDraw memory maps linking classes to regions.",
+      "learningPath": [
+        "Read the overview and core concepts for Memory Layouts",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "layout",
+        "structures"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Create a memory map diagram for a simple game's player entity"
+      ]
+    },
+    {
+      "id": "memory-scanning",
+      "title": "Memory Scanning",
+      "slug": "memory-scanning",
+      "description": "Exact, fuzzy, and changed-value scans.",
+      "explanation": "Cheat Engine scan types:\n- Exact value\n- Unknown initial → changed/unchanged\n- Increased/decreased\n- Fuzzy (float tolerance)\n\nNarrow results by changing game state between scans.",
+      "learningPath": [
+        "Read the overview and core concepts for Memory Scanning",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "scanning",
+        "cheat-engine"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-ce-health-scan"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Memory Scanning in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "pattern-scanning",
+      "title": "Pattern Scanning",
+      "slug": "pattern-scanning",
+      "description": "AOB scanning in modules.",
+      "explanation": "Scan executable regions for byte patterns with wildcards. Account for ASLR by scanning module-relative offsets.\n\n`48 8B 05 ?? ?? ?? ?? 48 85 C0` — common mov rax, [rip+rel]; test rax, rax pattern.",
+      "learningPath": [
+        "Read the overview and core concepts for Pattern Scanning",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "signatures"
+      ],
+      "estimatedHours": 5,
+      "tags": [
+        "patterns",
+        "aob"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Pattern Scanning in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "pointer-chains",
+      "title": "Pointer Chains",
+      "slug": "pointer-chains",
+      "description": "Multi-level pointer resolution.",
+      "explanation": "Static base + offsets → dynamic heap address:\n`game.exe+0x1234568` → `[+0x20]` → `[+0x18]` → health\n\nPointer scan in CE finds stable chains across restarts (module-relative bases).",
+      "learningPath": [
+        "Read the overview and core concepts for Pointer Chains",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "pointers",
+        "chains"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-ce-pointer"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Pointer Chains in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "structures",
+      "title": "Structure Analysis",
+      "slug": "structures",
+      "description": "Reverse engineering C++ structures from memory.",
+      "explanation": "Workflow:\n1. Find base address of object\n2. Dump surrounding memory\n3. Identify vtable pointer, member fields\n4. Correlate changes with game actions\n5. Define struct in CE/ReClass.NET\n\nTools: ReClass.NET, Ghidra struct editor.",
+      "learningPath": [
+        "Read the overview and core concepts for Structure Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 10,
+      "tags": [
+        "structures",
+        "reclass"
+      ],
+      "resources": [
+        {
+          "id": "reclass",
+          "title": "ReClass.NET",
+          "url": "https://github.com/ReClassNET/ReClass.NET",
+          "type": "tool",
+          "description": "Memory structure editor",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Structure Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "rtti",
+      "title": "Run-Time Type Information",
+      "slug": "rtti",
+      "description": "Identifying C++ types via RTTI.",
+      "explanation": "MSVC RTTI includes TypeDescriptor, ClassHierarchyDescriptor. Scanners locate vtables and type names.\n\nUseful for identifying unknown objects in engine binaries. Tools: ClassInformer (IDA), Ghidra RTTI scripts.",
+      "learningPath": [
+        "Read the overview and core concepts for Run-Time Type Information",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "classes"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "rtti",
+        "cpp"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Run-Time Type Information in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

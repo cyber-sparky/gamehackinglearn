@@ -1,0 +1,240 @@
+{
+  "id": "assembly",
+  "slug": "assembly",
+  "title": "Assembly",
+  "description": "Deep dive into x86/x64 assembly for game reverse engineering.",
+  "icon": "Cpu",
+  "order": 4,
+  "topics": [
+    {
+      "id": "registers",
+      "title": "Registers",
+      "slug": "registers",
+      "description": "General purpose, segment, and flags registers.",
+      "explanation": "x64 GPRs: RAX (accumulator), RBX (base), RCX (counter/arg1), RDX (data/arg2), RSI/RDI (source/dest index), RBP (frame pointer), RSP (stack pointer), R8-R15 (extended).\n\nSpecial: RIP (instruction pointer), RFLAGS (ZF, CF, SF, OF). SIMD: XMM0-XMM15 for SSE/AVX.",
+      "learningPath": [
+        "Read the overview and core concepts for Registers",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "registers",
+        "x64"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Registers in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "instructions",
+      "title": "Instructions Deep Dive",
+      "slug": "instructions",
+      "description": "Instruction categories and encoding basics.",
+      "explanation": "Categories: data transfer, arithmetic, logic, shift/rotate, control transfer, string ops, SIMD.\n\nPrefixes modify behavior (REX for 64-bit, LOCK for atomics). ModR/M byte encodes operands.",
+      "learningPath": [
+        "Read the overview and core concepts for Instructions Deep Dive",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "registers"
+      ],
+      "estimatedHours": 10,
+      "tags": [
+        "instructions"
+      ],
+      "resources": [
+        {
+          "id": "felix",
+          "title": "Felix Cloutier x86 Reference",
+          "url": "https://www.felixcloutier.com/x86/",
+          "type": "documentation",
+          "description": "Instruction reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Instructions Deep Dive in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "stack-frames",
+      "title": "Stack Frames",
+      "slug": "stack-frames",
+      "description": "Prologue, epilogue, and frame pointers.",
+      "explanation": "Typical x64 prologue:\n```asm\npush rbp\nmov rbp, rsp\nsub rsp, 0x40\n```\nLocal variables at `[rbp-0x10]`. With optimizations, RBP may be omitted — use RSP-relative addressing.",
+      "learningPath": [
+        "Read the overview and core concepts for Stack Frames",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "stack"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "stack",
+        "frames"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Stack Frames in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "function-calls",
+      "title": "Function Calls",
+      "slug": "function-calls",
+      "description": "call/ret, tail calls, and thunks.",
+      "explanation": "`call` pushes return address and jumps. `ret` pops into RIP. Tail call optimization reuses stack frame. Import thunks jump through IAT entries.",
+      "learningPath": [
+        "Read the overview and core concepts for Function Calls",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "calling-conventions"
+      ],
+      "estimatedHours": 5,
+      "tags": [
+        "calls",
+        "functions"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Function Calls in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "jump-instructions",
+      "title": "Jump Instructions",
+      "slug": "jump-instructions",
+      "description": "Conditional and unconditional jumps.",
+      "explanation": "Unconditional: jmp. Conditional: je/jz, jne/jnz, jg, jl, ja, jb (based on flags). Loops: loop, jecxz (rare in modern code). Switch: jump table via `jmp [reg*8+disp]`.",
+      "learningPath": [
+        "Read the overview and core concepts for Jump Instructions",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "jumps",
+        "control-flow"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Jump Instructions in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "memory-addressing",
+      "title": "Memory Addressing Modes",
+      "slug": "memory-addressing",
+      "description": "Effective address calculation.",
+      "explanation": "Forms: `[base + index*scale + displacement]`. RIP-relative common in x64: `[rip+0x1234]`. LEA computes addresses without memory access.",
+      "learningPath": [
+        "Read the overview and core concepts for Memory Addressing Modes",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 5,
+      "tags": [
+        "addressing",
+        "memory"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Memory Addressing Modes in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "simd",
+      "title": "SIMD Instructions",
+      "slug": "simd",
+      "description": "SSE, AVX for vector math in games.",
+      "explanation": "Games use SIMD for physics, graphics, audio. XMM registers hold 128-bit vectors. Instructions: movaps, addps, mulps, shufps.\n\nRecognize SIMD-heavy functions by XMM register usage.",
+      "learningPath": [
+        "Read the overview and core concepts for SIMD Instructions",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "instructions"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "simd",
+        "sse",
+        "avx"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining SIMD Instructions in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

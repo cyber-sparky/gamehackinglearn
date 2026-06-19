@@ -1,0 +1,164 @@
+{
+  "id": "anti-cheat",
+  "slug": "anti-cheat",
+  "title": "Anti-Cheat Research",
+  "description": "Understanding anti-cheat architecture for defensive security research. Educational focus only — no bypass instructions.",
+  "icon": "Shield",
+  "order": 11,
+  "topics": [
+    {
+      "id": "usermode-ac",
+      "title": "User-Mode Anti-Cheats",
+      "slug": "usermode-ac",
+      "description": "Ring 3 detection techniques.",
+      "explanation": "User-mode AC runs in process or as separate service:\n- Module enumeration\n- Memory integrity checks\n- Window/process scanning\n- Hook detection on game modules\n- Screenshot/hash verification\n\nResearch goal: understand attack surface for defensive hardening.",
+      "learningPath": [
+        "Read the overview and core concepts for User-Mode Anti-Cheats",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "anti-cheat",
+        "usermode"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining User-Mode Anti-Cheats in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "kernelmode-ac",
+      "title": "Kernel-Mode Anti-Cheats",
+      "slug": "kernelmode-ac",
+      "description": "Ring 0 drivers and callbacks.",
+      "explanation": "Kernel AC via signed drivers:\n- ObRegisterCallbacks (handle stripping)\n- PsSetCreateProcessNotifyRoutine\n- Image load notify callbacks\n- Minifilter for file integrity\n- IOCTL heartbeat with usermode component\n\nStudy in VM with driver logging.",
+      "learningPath": [
+        "Read the overview and core concepts for Kernel-Mode Anti-Cheats",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "expert",
+      "prerequisites": [
+        "drivers"
+      ],
+      "estimatedHours": 15,
+      "tags": [
+        "anti-cheat",
+        "kernel"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Kernel-Mode Anti-Cheats in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "integrity-checks",
+      "title": "Integrity Checks",
+      "slug": "integrity-checks",
+      "description": "Code and memory integrity verification.",
+      "explanation": "Techniques:\n- CRC/hash of code sections\n- Canary values in data\n- Periodic re-scanning\n- Server-side validation\n\nDefense: server authority, encrypted protocols, attestation.",
+      "learningPath": [
+        "Read the overview and core concepts for Integrity Checks",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "integrity",
+        "security"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Integrity Checks in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "driver-communication",
+      "title": "Driver Communication",
+      "slug": "driver-communication",
+      "description": "User/kernel IPC in AC systems.",
+      "explanation": "Common patterns:\n- IOCTL via DeviceIoControl\n- Shared memory sections\n- Filter communication ports\n- Named pipes\n\nAnalyze with IRP logging in WinDbg (research VMs).",
+      "learningPath": [
+        "Read the overview and core concepts for Driver Communication",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "expert",
+      "prerequisites": [
+        "drivers"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "driver",
+        "ipc"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Driver Communication in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "detection-techniques",
+      "title": "Detection Techniques Overview",
+      "slug": "detection-techniques",
+      "description": "Catalog of detection methods for researchers.",
+      "explanation": "Categories:\n- **Behavioral** — impossible actions, statistics\n- **Environmental** — known tools, debugger presence\n- **Integrity** — modified code/memory\n- **Network** — anomalous packets\n- **Hardware** — HWID tracking\n\nFocus: how to *design* secure systems, not evade them.",
+      "learningPath": [
+        "Read the overview and core concepts for Detection Techniques Overview",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 10,
+      "tags": [
+        "detection",
+        "research"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Detection Techniques Overview in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

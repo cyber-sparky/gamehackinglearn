@@ -1,0 +1,130 @@
+[
+  {
+    "id": "roadmap-re",
+    "slug": "reverse-engineering",
+    "title": "Reverse Engineering Roadmap",
+    "description": "Complete path from binary basics to advanced RE skills.",
+    "nodes": [
+      { "id": "re-1", "label": "Computer Fundamentals", "description": "CPU, memory, processes", "difficulty": "beginner", "sectionSlug": "foundation", "topicId": "cpu-architecture", "estimatedHours": 10 },
+      { "id": "re-2", "label": "PE Format", "description": "Understand executable structure", "difficulty": "beginner", "sectionSlug": "foundation", "topicId": "pe-files", "estimatedHours": 6 },
+      { "id": "re-3", "label": "Assembly Basics", "description": "Read disassembly fluently", "difficulty": "intermediate", "sectionSlug": "assembly", "topicId": "instructions", "estimatedHours": 15 },
+      { "id": "re-4", "label": "C++ for RE", "description": "Classes, vtables, STL", "difficulty": "intermediate", "sectionSlug": "cpp-re", "topicId": "classes", "estimatedHours": 20 },
+      { "id": "re-5", "label": "Static Analysis", "description": "Ghidra/IDA workflow", "difficulty": "intermediate", "sectionSlug": "reverse-engineering", "topicId": "static-analysis", "estimatedHours": 15 },
+      { "id": "re-6", "label": "Dynamic Analysis", "description": "x64dbg debugging", "difficulty": "intermediate", "sectionSlug": "debugging", "topicId": "x64dbg", "estimatedHours": 15 },
+      { "id": "re-7", "label": "Function Analysis", "description": "Identify and rename functions", "difficulty": "intermediate", "sectionSlug": "reverse-engineering", "topicId": "function-analysis", "estimatedHours": 10 },
+      { "id": "re-8", "label": "Advanced RE", "description": "Decompilation, RTTI, obfuscation", "difficulty": "advanced", "sectionSlug": "reverse-engineering", "topicId": "decompilers", "estimatedHours": 25 }
+    ],
+    "edges": [
+      { "from": "re-1", "to": "re-2" },
+      { "from": "re-2", "to": "re-3" },
+      { "from": "re-3", "to": "re-4" },
+      { "from": "re-4", "to": "re-5" },
+      { "from": "re-5", "to": "re-6" },
+      { "from": "re-6", "to": "re-7" },
+      { "from": "re-7", "to": "re-8" }
+    ]
+  },
+  {
+    "id": "roadmap-windows",
+    "slug": "windows-internals",
+    "title": "Windows Internals Roadmap",
+    "description": "Deep Windows OS knowledge for security researchers.",
+    "nodes": [
+      { "id": "win-1", "label": "Process Memory", "description": "Virtual address space", "difficulty": "beginner", "sectionSlug": "foundation", "topicId": "process-memory", "estimatedHours": 5 },
+      { "id": "win-2", "label": "WinAPI", "description": "Essential Windows APIs", "difficulty": "intermediate", "sectionSlug": "foundation", "topicId": "apis", "estimatedHours": 8 },
+      { "id": "win-3", "label": "PEB & TEB", "description": "Process/thread environment blocks", "difficulty": "advanced", "sectionSlug": "windows-internals", "topicId": "peb", "estimatedHours": 8 },
+      { "id": "win-4", "label": "Syscalls", "description": "User to kernel transition", "difficulty": "advanced", "sectionSlug": "windows-internals", "topicId": "syscalls", "estimatedHours": 10 },
+      { "id": "win-5", "label": "Drivers", "description": "Kernel-mode basics", "difficulty": "expert", "sectionSlug": "windows-internals", "topicId": "drivers", "estimatedHours": 20 },
+      { "id": "win-6", "label": "Kernel Debugging", "description": "WinDbg kernel mode", "difficulty": "expert", "sectionSlug": "debugging", "topicId": "windbg", "estimatedHours": 25 }
+    ],
+    "edges": [
+      { "from": "win-1", "to": "win-2" },
+      { "from": "win-2", "to": "win-3" },
+      { "from": "win-3", "to": "win-4" },
+      { "from": "win-4", "to": "win-5" },
+      { "from": "win-5", "to": "win-6" }
+    ]
+  },
+  {
+    "id": "roadmap-memory",
+    "slug": "memory-hacking",
+    "title": "Memory Hacking Roadmap",
+    "description": "From first scan to structure analysis.",
+    "nodes": [
+      { "id": "mem-1", "label": "Process Memory Basics", "description": "Address space layout", "difficulty": "beginner", "sectionSlug": "foundation", "topicId": "process-memory", "estimatedHours": 4 },
+      { "id": "mem-2", "label": "Cheat Engine Basics", "description": "Exact & unknown scans", "difficulty": "beginner", "sectionSlug": "cheat-engine", "topicId": "exact-scans", "estimatedHours": 4 },
+      { "id": "mem-3", "label": "Pointer Scanning", "description": "Stable pointer chains", "difficulty": "intermediate", "sectionSlug": "cheat-engine", "topicId": "pointer-scanning", "estimatedHours": 6 },
+      { "id": "mem-4", "label": "Memory Tracing", "description": "Find what writes/accesses", "difficulty": "intermediate", "sectionSlug": "debugging", "topicId": "memory-tracing", "estimatedHours": 6 },
+      { "id": "mem-5", "label": "Structure Analysis", "description": "ReClass & struct mapping", "difficulty": "advanced", "sectionSlug": "memory-analysis", "topicId": "structures", "estimatedHours": 12 },
+      { "id": "mem-6", "label": "Pattern Scanning", "description": "AOB signatures in modules", "difficulty": "intermediate", "sectionSlug": "memory-analysis", "topicId": "pattern-scanning", "estimatedHours": 6 }
+    ],
+    "edges": [
+      { "from": "mem-1", "to": "mem-2" },
+      { "from": "mem-2", "to": "mem-3" },
+      { "from": "mem-3", "to": "mem-4" },
+      { "from": "mem-4", "to": "mem-5" },
+      { "from": "mem-3", "to": "mem-6" }
+    ]
+  },
+  {
+    "id": "roadmap-unity",
+    "slug": "unity",
+    "title": "Unity Roadmap",
+    "description": "Unity game analysis from Mono to IL2CPP.",
+    "nodes": [
+      { "id": "unity-1", "label": "Game Engines Intro", "description": "Engine identification", "difficulty": "beginner", "sectionSlug": "foundation", "topicId": "game-engines-intro", "estimatedHours": 4 },
+      { "id": "unity-2", "label": "C# / Mono Basics", "description": "Managed code fundamentals", "difficulty": "intermediate", "sectionSlug": "game-engines", "topicId": "unity-mono", "estimatedHours": 8 },
+      { "id": "unity-3", "label": "dnSpy Analysis", "description": "Decompile Mono assemblies", "difficulty": "intermediate", "sectionSlug": "game-engines", "topicId": "unity-mono", "estimatedHours": 8 },
+      { "id": "unity-4", "label": "IL2CPP Pipeline", "description": "Native Unity builds", "difficulty": "advanced", "sectionSlug": "game-engines", "topicId": "unity-il2cpp", "estimatedHours": 12 },
+      { "id": "unity-5", "label": "Asset Extraction", "description": "Unity assets and bundles", "difficulty": "intermediate", "sectionSlug": "game-engines", "topicId": "unity-assets", "estimatedHours": 4 }
+    ],
+    "edges": [
+      { "from": "unity-1", "to": "unity-2" },
+      { "from": "unity-2", "to": "unity-3" },
+      { "from": "unity-2", "to": "unity-4" },
+      { "from": "unity-3", "to": "unity-5" },
+      { "from": "unity-4", "to": "unity-5" }
+    ]
+  },
+  {
+    "id": "roadmap-unreal",
+    "slug": "unreal",
+    "title": "Unreal Engine Roadmap",
+    "description": "UObject system to SDK generation.",
+    "nodes": [
+      { "id": "ue-1", "label": "C++ for RE", "description": "Essential C++ knowledge", "difficulty": "intermediate", "sectionSlug": "cpp-re", "topicId": "classes", "estimatedHours": 15 },
+      { "id": "ue-2", "label": "UObject System", "description": "Core Unreal reflection", "difficulty": "advanced", "sectionSlug": "game-engines", "topicId": "unreal-uobject", "estimatedHours": 15 },
+      { "id": "ue-3", "label": "GNames/GObjects", "description": "Global object arrays", "difficulty": "advanced", "sectionSlug": "game-engines", "topicId": "unreal-uobject", "estimatedHours": 10 },
+      { "id": "ue-4", "label": "SDK Generation", "description": "Automated header generation", "difficulty": "advanced", "sectionSlug": "game-engines", "topicId": "unreal-sdk", "estimatedHours": 12 },
+      { "id": "ue-5", "label": "Blueprints", "description": "Visual scripting analysis", "difficulty": "advanced", "sectionSlug": "game-engines", "topicId": "unreal-blueprints", "estimatedHours": 8 }
+    ],
+    "edges": [
+      { "from": "ue-1", "to": "ue-2" },
+      { "from": "ue-2", "to": "ue-3" },
+      { "from": "ue-3", "to": "ue-4" },
+      { "from": "ue-2", "to": "ue-5" }
+    ]
+  },
+  {
+    "id": "roadmap-anticheat",
+    "slug": "anti-cheat-research",
+    "title": "Anti-Cheat Research Roadmap",
+    "description": "Defensive security research path — understand, don't bypass.",
+    "nodes": [
+      { "id": "ac-1", "label": "Windows Internals", "description": "OS fundamentals", "difficulty": "intermediate", "sectionSlug": "windows-internals", "topicId": "processes", "estimatedHours": 10 },
+      { "id": "ac-2", "label": "User-Mode AC", "description": "Ring 3 detection", "difficulty": "intermediate", "sectionSlug": "anti-cheat", "topicId": "usermode-ac", "estimatedHours": 8 },
+      { "id": "ac-3", "label": "Kernel Drivers", "description": "Ring 0 architecture", "difficulty": "expert", "sectionSlug": "windows-internals", "topicId": "drivers", "estimatedHours": 20 },
+      { "id": "ac-4", "label": "Kernel-Mode AC", "description": "Driver callbacks", "difficulty": "expert", "sectionSlug": "anti-cheat", "topicId": "kernelmode-ac", "estimatedHours": 15 },
+      { "id": "ac-5", "label": "Detection Methods", "description": "Full detection catalog", "difficulty": "advanced", "sectionSlug": "anti-cheat", "topicId": "detection-techniques", "estimatedHours": 10 },
+      { "id": "ac-6", "label": "Secure Game Design", "description": "Building resilient systems", "difficulty": "advanced", "sectionSlug": "game-security", "topicId": "secure-design", "estimatedHours": 8 }
+    ],
+    "edges": [
+      { "from": "ac-1", "to": "ac-2" },
+      { "from": "ac-1", "to": "ac-3" },
+      { "from": "ac-3", "to": "ac-4" },
+      { "from": "ac-2", "to": "ac-5" },
+      { "from": "ac-4", "to": "ac-5" },
+      { "from": "ac-5", "to": "ac-6" }
+    ]
+  }
+]

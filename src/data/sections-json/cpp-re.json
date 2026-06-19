@@ -1,0 +1,327 @@
+{
+  "id": "cpp-re",
+  "slug": "cpp-re",
+  "title": "C++ For Reverse Engineering",
+  "description": "Modern C++ concepts essential for understanding compiled game code.",
+  "icon": "Code2",
+  "order": 2,
+  "topics": [
+    {
+      "id": "modern-cpp",
+      "title": "Modern C++ Overview",
+      "slug": "modern-cpp",
+      "description": "C++11/14/17 features seen in game codebases.",
+      "explanation": "Modern game engines use C++17/20 features: smart pointers, lambdas, std::optional, constexpr, and RAII. Recognizing these patterns in decompiled output speeds analysis.\n\nKey patterns:\n- **RAII** — destructors clean up resources\n- **Templates** — code bloat, mangled names\n- **STL containers** — std::vector layout in memory\n- **Move semantics** — std::move, rvalue references",
+      "learningPath": [
+        "Read the overview and core concepts for Modern C++ Overview",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "cpp",
+        "modern"
+      ],
+      "resources": [
+        {
+          "id": "learncpp",
+          "title": "LearnCpp.com",
+          "url": "https://www.learncpp.com/",
+          "type": "course",
+          "description": "Comprehensive free C++ tutorial",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Modern C++ Overview in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "pointers",
+      "title": "Pointers",
+      "slug": "pointers",
+      "description": "Pointer arithmetic and indirection in RE context.",
+      "explanation": "Pointers are addresses. In assembly: `mov rax, [rcx]` dereferences RCX. Pointer arithmetic scales by type size.\n\nRE skills:\n- Identify pointer chains (base + offsets)\n- Recognize null checks\n- Trace pointer assignments in constructors",
+      "learningPath": [
+        "Read the overview and core concepts for Pointers",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [
+        "process-memory"
+      ],
+      "estimatedHours": 4,
+      "tags": [
+        "cpp",
+        "pointers"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Pointers in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "references",
+      "title": "References",
+      "slug": "references",
+      "description": "C++ references vs pointers in compiled code.",
+      "explanation": "References compile to pointer operations — often indistinguishable in optimized code. `T& ref = obj` becomes address-of and dereference operations.\n\nDecompilers may show references as pointers. Understand both semantics.",
+      "learningPath": [
+        "Read the overview and core concepts for References",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [
+        "pointers"
+      ],
+      "estimatedHours": 2,
+      "tags": [
+        "cpp",
+        "references"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining References in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "classes",
+      "title": "Classes & OOP",
+      "slug": "classes",
+      "description": "Vtables, inheritance, and polymorphism.",
+      "explanation": "C++ classes compile to:\n- **Vtable pointer** at object start (with virtual methods)\n- **Member layout** following declaration order (with padding)\n- **Inheritance** — base subobject at offset 0\n\nFinding vtables in Ghidra/IDA reveals class hierarchies. RTTI helps identify types.",
+      "learningPath": [
+        "Read the overview and core concepts for Classes & OOP",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "pointers",
+        "assembly-basics"
+      ],
+      "estimatedHours": 10,
+      "tags": [
+        "cpp",
+        "oop",
+        "vtable"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-class-layout"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Classes & OOP in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "templates",
+      "title": "Templates",
+      "slug": "templates",
+      "description": "Template instantiation and mangled symbols.",
+      "explanation": "Templates generate specialized code per type. Symbol names are **mangled** (e.g., `?push_back@?$vector@HV?$allocator@H@std@@@std@@`).\n\nTools: undname (MSVC), c++filt. Demangling reveals container types and function signatures.",
+      "learningPath": [
+        "Read the overview and core concepts for Templates",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "classes"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "cpp",
+        "templates"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Templates in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "stl",
+      "title": "STL Containers",
+      "slug": "stl",
+      "description": "std::vector, std::map, std::string memory layouts.",
+      "explanation": "Common layouts (libstdc++/MSVC):\n- **vector**: `{T* begin, T* end, T* capacity}`\n- **string (SSO)**: inline buffer or heap pointer + size\n- **map**: typically red-black tree nodes\n\nKnowing layouts lets you interpret memory dumps and reconstruct structures.",
+      "learningPath": [
+        "Read the overview and core concepts for STL Containers",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "classes",
+        "heap"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "cpp",
+        "stl"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining STL Containers in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "memory-management",
+      "title": "Memory Management",
+      "slug": "memory-management",
+      "description": "new/delete, smart pointers, allocators.",
+      "explanation": "Games may override global new/delete or use pool allocators. Smart pointers (`unique_ptr`, `shared_ptr`) add control block overhead for shared ownership.\n\nTrack allocations in debugger to find object birth points.",
+      "learningPath": [
+        "Read the overview and core concepts for Memory Management",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "heap",
+        "classes"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "cpp",
+        "memory"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Memory Management in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "multithreading-cpp",
+      "title": "C++ Multithreading",
+      "slug": "multithreading-cpp",
+      "description": "std::thread, mutexes, atomics in game code.",
+      "explanation": "C++11 threading wraps OS primitives. `std::mutex` → CriticalSection/CRITICAL_SECTION on Windows. Atomics compile to LOCK-prefixed instructions.\n\nThread-local storage (thread_local) maps to TEB slots.",
+      "learningPath": [
+        "Read the overview and core concepts for C++ Multithreading",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "threads"
+      ],
+      "estimatedHours": 5,
+      "tags": [
+        "cpp",
+        "threads"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining C++ Multithreading in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "winapi-cpp",
+      "title": "WinAPI from C++",
+      "slug": "winapi-cpp",
+      "description": "Calling WinAPI and COM from C++ games.",
+      "explanation": "Games use WinAPI directly and via wrappers. COM interfaces (DirectX, audio) use vtable calls: `mov rax, [rcx]; call [rax+offset]`.\n\nPractice: trace CreateWindowEx, D3D11CreateDevice in a sample app.",
+      "learningPath": [
+        "Read the overview and core concepts for WinAPI from C++",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "apis",
+        "classes"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "cpp",
+        "winapi"
+      ],
+      "resources": [
+        {
+          "id": "ms-cpp",
+          "title": "Microsoft C++ Docs",
+          "url": "https://learn.microsoft.com/en-us/cpp/",
+          "type": "documentation",
+          "description": "Official MSVC documentation",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining WinAPI from C++ in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

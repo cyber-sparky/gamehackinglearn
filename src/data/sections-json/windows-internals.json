@@ -1,0 +1,256 @@
+{
+  "id": "windows-internals",
+  "slug": "windows-internals",
+  "title": "Windows Internals",
+  "description": "Deep Windows OS knowledge for security and RE research.",
+  "icon": "Monitor",
+  "order": 6,
+  "topics": [
+    {
+      "id": "processes",
+      "title": "Processes",
+      "slug": "processes",
+      "description": "EPROCESS, process creation, and enumeration.",
+      "explanation": "Each process has an EPROCESS kernel structure. User-mode sees PID, handles, PEB. Tools: Process Explorer, NtQueryInformationProcess.\n\nGames may enumerate processes for integrity checks — understand detection from a defensive research perspective.",
+      "learningPath": [
+        "Read the overview and core concepts for Processes",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "process",
+        "eprocess"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Processes in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "threads-deep",
+      "title": "Threads Deep Dive",
+      "slug": "threads-deep",
+      "description": "ETHREAD, scheduling, and TLS.",
+      "explanation": "Threads share process address space but have unique stacks and TEBs. Thread Local Storage (TLS) slots store per-thread data accessed via fs:[0x58] (x64 TEB offset).",
+      "learningPath": [
+        "Read the overview and core concepts for Threads Deep Dive",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "threads"
+      ],
+      "estimatedHours": 5,
+      "tags": [
+        "threads",
+        "ethread"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Threads Deep Dive in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "peb",
+      "title": "Process Environment Block (PEB)",
+      "slug": "peb",
+      "description": "PEB structure and module list traversal.",
+      "explanation": "PEB contains:\n- ImageBaseAddress\n- Ldr (PEB_LDR_DATA) — loaded module linked lists\n- BeingDebugged flag\n- ProcessParameters\n\nReading PEB via GS:[0x60] (x64) reveals loaded DLLs without API calls.",
+      "learningPath": [
+        "Read the overview and core concepts for Process Environment Block (PEB)",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "peb",
+        "internals"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Process Environment Block (PEB) in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "teb",
+      "title": "Thread Environment Block (TEB)",
+      "slug": "teb",
+      "description": "TEB layout and thread-local data.",
+      "explanation": "TEB accessed via GS segment register (x64). Contains stack bounds, last error, TLS array, SEH chain (x86). Useful for identifying current thread context in dumps.",
+      "learningPath": [
+        "Read the overview and core concepts for Thread Environment Block (TEB)",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "teb",
+        "internals"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Thread Environment Block (TEB) in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "syscalls",
+      "title": "System Calls",
+      "slug": "syscalls",
+      "description": "User-mode to kernel transition.",
+      "explanation": "ntdll exports Nt/Zw functions that execute `syscall` instruction with service number in EAX. Direct syscalls bypass hooked ntdll (research topic for EDR analysis).\n\nStudy syscall tables for understanding API monitoring evasion *detection*.",
+      "learningPath": [
+        "Read the overview and core concepts for System Calls",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "syscall",
+        "ntdll"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining System Calls in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "handles-deep",
+      "title": "Handles Deep Dive",
+      "slug": "handles-deep",
+      "description": "Object manager and handle tables.",
+      "explanation": "Kernel object manager tracks all handles. DuplicateHandle, CloseHandle semantics. Handle grants access per ACL/security descriptor.",
+      "learningPath": [
+        "Read the overview and core concepts for Handles Deep Dive",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "handles"
+      ],
+      "estimatedHours": 5,
+      "tags": [
+        "handles",
+        "kernel"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Handles Deep Dive in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "drivers",
+      "title": "Windows Drivers",
+      "slug": "drivers",
+      "description": "Kernel-mode driver basics for AC research.",
+      "explanation": "Drivers run in ring 0 with full system access. Anti-cheat drivers monitor user-mode via callbacks (PsSetCreateProcessNotifyRoutine, ObRegisterCallbacks).\n\nResearch focus: understand callback architecture, IOCTL communication, driver signing.",
+      "learningPath": [
+        "Read the overview and core concepts for Windows Drivers",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "expert",
+      "prerequisites": [],
+      "estimatedHours": 15,
+      "tags": [
+        "drivers",
+        "kernel"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Windows Drivers in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "kernel-basics",
+      "title": "Kernel Basics",
+      "slug": "kernel-basics",
+      "description": "Ring 0/3, IRQL, and kernel debugging intro.",
+      "explanation": "CPU privilege rings: ring 3 (user), ring 0 (kernel). IRQL manages interrupt priority. Kernel debugging via WinDbg + VM for driver/AC research.\n\nAlways research in isolated VMs.",
+      "learningPath": [
+        "Read the overview and core concepts for Kernel Basics",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "expert",
+      "prerequisites": [
+        "drivers"
+      ],
+      "estimatedHours": 12,
+      "tags": [
+        "kernel",
+        "ring0"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Kernel Basics in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

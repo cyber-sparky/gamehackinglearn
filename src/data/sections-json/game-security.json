@@ -1,0 +1,172 @@
+{
+  "id": "game-security",
+  "slug": "game-security",
+  "title": "Game Security Research",
+  "description": "Client trust, authority models, and secure game design.",
+  "icon": "Lock",
+  "order": 13,
+  "topics": [
+    {
+      "id": "client-trust",
+      "title": "Client Trust Issues",
+      "slug": "client-trust",
+      "description": "Why clients cannot be trusted.",
+      "explanation": "Any data on the client can be modified. Never trust:\n- Position, health, inventory (authoritative on server)\n- Timestamps from client\n- Claimed hit results\n\nDesign: server validates all critical actions.",
+      "learningPath": [
+        "Read the overview and core concepts for Client Trust Issues",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "security",
+        "client-trust"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Client Trust Issues in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "economy-abuse",
+      "title": "Economy Abuse",
+      "slug": "economy-abuse",
+      "description": "Virtual economy exploitation case studies.",
+      "explanation": "Cases: duplicated items, price manipulation, currency generation via logic bugs.\n\nPrevention: server-side transactions, audit logs, rate limiting.",
+      "learningPath": [
+        "Read the overview and core concepts for Economy Abuse",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 5,
+      "tags": [
+        "economy",
+        "abuse"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Economy Abuse in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "logic-flaws",
+      "title": "Logic Flaws",
+      "slug": "logic-flaws",
+      "description": "Game logic vulnerabilities.",
+      "explanation": "Examples: race conditions in trading, integer overflow in damage calc, state machine bypass.\n\nMethodology: threat modeling, fuzzing game actions, code review.",
+      "learningPath": [
+        "Read the overview and core concepts for Logic Flaws",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "logic",
+        "vulnerabilities"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Logic Flaws in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "authority-models",
+      "title": "Authority Models",
+      "slug": "authority-models",
+      "description": "Client-server authority patterns.",
+      "explanation": "Models:\n- **Server authoritative** — gold standard for competitive\n- **Client authoritative** — acceptable for co-op casual\n- **Hybrid** — client prediction + server reconciliation\n\nSource: Gabriel Gambetta's networked physics articles.",
+      "learningPath": [
+        "Read the overview and core concepts for Authority Models",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "authority",
+        "networking"
+      ],
+      "resources": [
+        {
+          "id": "gambetta",
+          "title": "Gabriel Gambetta — Game Networking",
+          "url": "https://gabrielgambetta.com/client-server-game-architecture.html",
+          "type": "article",
+          "description": "Authoritative networking explained",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Authority Models in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "secure-design",
+      "title": "Secure Game Design",
+      "slug": "secure-design",
+      "description": "Building cheat-resistant game systems.",
+      "explanation": "Principles:\n- Server validates everything critical\n- Obscurity is not security\n- Encrypt + authenticate packets\n- Behavioral analysis and reporting\n- Regular security audits",
+      "learningPath": [
+        "Read the overview and core concepts for Secure Game Design",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "design",
+        "security"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Secure Game Design in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

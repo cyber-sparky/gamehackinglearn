@@ -1,0 +1,352 @@
+{
+  "id": "reverse-engineering",
+  "slug": "reverse-engineering",
+  "title": "Reverse Engineering",
+  "description": "Static and dynamic analysis techniques for understanding binaries.",
+  "icon": "Search",
+  "order": 3,
+  "topics": [
+    {
+      "id": "static-analysis",
+      "title": "Static Analysis",
+      "slug": "static-analysis",
+      "description": "Analyze binaries without execution.",
+      "explanation": "Static analysis examines code/data without running the program:\n- Disassembly & decompilation\n- String extraction\n- Import/export analysis\n- Cross-reference (xref) tracking\n- Control flow graph construction\n\nStart static when malware concerns exist or anti-debug is suspected.",
+      "learningPath": [
+        "Read the overview and core concepts for Static Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "pe-files",
+        "assembly-basics"
+      ],
+      "estimatedHours": 10,
+      "tags": [
+        "static",
+        "analysis"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Static Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "dynamic-analysis",
+      "title": "Dynamic Analysis",
+      "slug": "dynamic-analysis",
+      "description": "Runtime observation and debugging.",
+      "explanation": "Dynamic analysis runs the program under observation:\n- Breakpoints (software/hardware)\n- Memory watchpoints\n- API hooking/logging\n- Trace recording\n\nCombines with static findings to confirm hypotheses.",
+      "learningPath": [
+        "Read the overview and core concepts for Dynamic Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "static-analysis"
+      ],
+      "estimatedHours": 10,
+      "tags": [
+        "dynamic",
+        "debugging"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Dynamic Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "disassemblers",
+      "title": "Disassemblers",
+      "slug": "disassemblers",
+      "description": "Reading and navigating disassembly.",
+      "explanation": "Disassemblers convert machine code to assembly:\n- **Ghidra** — free, decompiler, scripting\n- **IDA Free** — industry standard (limited)\n- **Binary Ninja** — modern UI, HLIL\n\nSkills: rename functions, define structures, follow xrefs, patch bytes (for research VMs only).",
+      "learningPath": [
+        "Read the overview and core concepts for Disassemblers",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 15,
+      "tags": [
+        "ghidra",
+        "ida",
+        "disassembly"
+      ],
+      "resources": [
+        {
+          "id": "ghidra",
+          "title": "Ghidra",
+          "url": "https://ghidra-sre.org/",
+          "type": "tool",
+          "description": "NSA reverse engineering suite",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "ida-free",
+          "title": "IDA Free",
+          "url": "https://hex-rays.com/ida-free/",
+          "type": "tool",
+          "description": "Free disassembler from Hex-Rays",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Disassemblers in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "decompilers",
+      "title": "Decompilers",
+      "slug": "decompilers",
+      "description": "From assembly to pseudo-C.",
+      "explanation": "Decompilers reconstruct high-level code from assembly. Accuracy varies with:\n- Correct function boundaries\n- Type information\n- Calling convention\n- Obfuscation\n\nAlways verify decompiler output against disassembly.",
+      "learningPath": [
+        "Read the overview and core concepts for Decompilers",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "disassemblers"
+      ],
+      "estimatedHours": 12,
+      "tags": [
+        "decompiler",
+        "ghidra"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Decompilers in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "function-analysis",
+      "title": "Function Analysis",
+      "slug": "function-analysis",
+      "description": "Identifying function purpose and parameters.",
+      "explanation": "Workflow:\n1. Find entry via xref/string/API\n2. Determine signature (args, return)\n3. Rename and comment\n4. Map local variables\n5. Identify key branches/loops\n\nLook for constants (magic numbers), string refs, and API calls as hints.",
+      "learningPath": [
+        "Read the overview and core concepts for Function Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "disassemblers",
+        "calling-conventions"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "functions",
+        "analysis"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Function Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "control-flow",
+      "title": "Control Flow Analysis",
+      "slug": "control-flow",
+      "description": "CFG, loops, and conditional logic.",
+      "explanation": "Control Flow Graphs show basic blocks and edges. Recognize:\n- if/else → conditional jumps\n- while/for → backward jumps\n- switch → jump tables\n- Short-circuit evaluation patterns",
+      "learningPath": [
+        "Read the overview and core concepts for Control Flow Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "assembly-basics"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "cfg",
+        "control-flow"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Control Flow Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "import-tables",
+      "title": "Import Tables",
+      "slug": "import-tables",
+      "description": "Analyzing PE imports.",
+      "explanation": "The import directory lists external dependencies. Delay-load imports resolve at first call. Analyze imports to understand:\n- Graphics APIs (d3d11.dll, opengl32.dll)\n- Network (ws2_32.dll)\n- Anti-debug (IsDebuggerPresent)",
+      "learningPath": [
+        "Read the overview and core concepts for Import Tables",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [
+        "pe-files"
+      ],
+      "estimatedHours": 4,
+      "tags": [
+        "imports",
+        "pe"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Import Tables in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "export-tables",
+      "title": "Export Tables",
+      "slug": "export-tables",
+      "description": "DLL exports and hook points.",
+      "explanation": "Exports name publicly available functions. Games may export mod SDK functions. Analyze exports in engine DLLs to find:\n- Factory functions\n- Interface getters\n- Plugin entry points",
+      "learningPath": [
+        "Read the overview and core concepts for Export Tables",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [
+        "pe-files"
+      ],
+      "estimatedHours": 3,
+      "tags": [
+        "exports",
+        "pe"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Export Tables in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "strings-analysis",
+      "title": "String Analysis",
+      "slug": "strings-analysis",
+      "description": "Finding and using strings in binaries.",
+      "explanation": "Strings reveal:\n- Error messages → code paths\n- Config keys → settings system\n- Class/func names (debug builds)\n- URLs and file paths\n\nTools: Ghidra strings window, FLOSS, strings.exe. Follow xrefs from strings to functions.",
+      "learningPath": [
+        "Read the overview and core concepts for String Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "strings",
+        "analysis"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining String Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "signatures",
+      "title": "Signature Scanning",
+      "slug": "signatures",
+      "description": "Pattern matching in code and memory.",
+      "explanation": "Signatures (AOB — array of bytes) identify code patterns despite ASLR:\n- Wildcards for relocations: `48 8B ?? ?? ?? ?? ??`\n- Unique prologue bytes\n- IDA FLIRT signatures for library identification\n\nUsed in research tools and mod frameworks for locating functions.",
+      "learningPath": [
+        "Read the overview and core concepts for Signature Scanning",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "assembly-basics"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "signatures",
+        "patterns"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Signature Scanning in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

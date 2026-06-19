@@ -1,0 +1,222 @@
+[
+  {
+    "id": "res-learncpp",
+    "title": "LearnCpp.com",
+    "url": "https://www.learncpp.com/",
+    "type": "course",
+    "description": "Comprehensive free C++ tutorial from basics to advanced topics.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["cpp", "programming", "fundamentals"],
+    "rating": 5
+  },
+  {
+    "id": "res-handmade-hero",
+    "title": "Handmade Hero",
+    "url": "https://handmadehero.org/",
+    "type": "course",
+    "description": "Build a complete game from scratch to understand engine internals.",
+    "difficulty": "intermediate",
+    "cost": "free",
+    "tags": ["game-dev", "c", "engine"],
+    "rating": 5
+  },
+  {
+    "id": "res-opensecuritytraining",
+    "title": "OpenSecurityTraining2",
+    "url": "https://opensecuritytraining.info/",
+    "type": "course",
+    "description": "Free security training including reverse engineering and Windows internals.",
+    "difficulty": "intermediate",
+    "cost": "free",
+    "tags": ["security", "re", "windows"],
+    "rating": 5
+  },
+  {
+    "id": "res-liveoverflow",
+    "title": "LiveOverflow YouTube",
+    "url": "https://www.youtube.com/c/LiveOverflow",
+    "type": "video",
+    "description": "Security research and reverse engineering video series.",
+    "difficulty": "intermediate",
+    "cost": "free",
+    "tags": ["youtube", "security", "re"],
+    "rating": 5
+  },
+  {
+    "id": "res-occupytheweb",
+    "title": "OTW RE Course",
+    "url": "https://www.hackers-arise.com/",
+    "type": "course",
+    "description": "Reverse engineering fundamentals and malware analysis.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["re", "malware", "course"],
+    "rating": 4
+  },
+  {
+    "id": "res-crackmes",
+    "title": "Crackmes.one",
+    "url": "https://crackmes.one/",
+    "type": "course",
+    "description": "Community crackme challenges for practicing reverse engineering.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["practice", "crackme", "re"],
+    "rating": 4
+  },
+  {
+    "id": "res-win-internals",
+    "title": "Windows Internals (Book)",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals",
+    "type": "book",
+    "description": "Definitive reference for Windows OS internals by Russinovich et al.",
+    "difficulty": "advanced",
+    "cost": "paid",
+    "tags": ["windows", "internals", "book"],
+    "rating": 5
+  },
+  {
+    "id": "res-practical-malware",
+    "title": "Practical Malware Analysis",
+    "url": "https://nostarch.com/malware",
+    "type": "book",
+    "description": "Hands-on malware analysis techniques applicable to game RE.",
+    "difficulty": "intermediate",
+    "cost": "paid",
+    "tags": ["malware", "re", "book"],
+    "rating": 5
+  },
+  {
+    "id": "res-game-hacking-book",
+    "title": "Game Hacking (Book)",
+    "url": "https://nostarch.com/gamehacking",
+    "type": "book",
+    "description": "Educational game hacking book covering memory, reverse engineering, and anti-cheat.",
+    "difficulty": "intermediate",
+    "cost": "paid",
+    "tags": ["game-hacking", "book", "memory"],
+    "rating": 4
+  },
+  {
+    "id": "res-guided-hacking",
+    "title": "Guided Hacking Forum",
+    "url": "https://guidedhacking.com/",
+    "type": "blog",
+    "description": "Community tutorials and resources for game hacking education.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["community", "tutorials"],
+    "rating": 3
+  },
+  {
+    "id": "res-unknown-cheats",
+    "title": "UnknownCheats Wiki",
+    "url": "https://wiki.unknowncheats.me/",
+    "type": "documentation",
+    "description": "Community wiki with technical game RE documentation.",
+    "difficulty": "intermediate",
+    "cost": "free",
+    "tags": ["wiki", "community", "re"],
+    "rating": 3
+  },
+  {
+    "id": "res-gdc",
+    "title": "GDC Vault",
+    "url": "https://gdcvault.com/",
+    "type": "video",
+    "description": "Game Developers Conference talks on engine architecture and networking.",
+    "difficulty": "intermediate",
+    "cost": "freemium",
+    "tags": ["gdc", "engine", "talks"],
+    "rating": 5
+  },
+  {
+    "id": "res-gambetta",
+    "title": "Gabriel Gambetta — Game Networking",
+    "url": "https://gabrielgambetta.com/client-server-game-architecture.html",
+    "type": "article",
+    "description": "Authoritative series on client-server game architecture and prediction.",
+    "difficulty": "intermediate",
+    "cost": "free",
+    "tags": ["networking", "architecture"],
+    "rating": 5
+  },
+  {
+    "id": "res-awesome-re",
+    "title": "Awesome Reverse Engineering",
+    "url": "https://github.com/wtsxDev/reverse-engineering",
+    "type": "github",
+    "description": "Curated list of reverse engineering tools and resources.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["awesome-list", "re", "tools"],
+    "rating": 4
+  },
+  {
+    "id": "res-ce-wiki",
+    "title": "Cheat Engine Wiki",
+    "url": "https://wiki.cheatengine.org/",
+    "type": "documentation",
+    "description": "Official Cheat Engine documentation and tutorials.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["cheat-engine", "documentation"],
+    "rating": 4
+  },
+  {
+    "id": "res-ghidra-tutorials",
+    "title": "Ghidra Tutorials (YouTube)",
+    "url": "https://www.youtube.com/results?search_query=ghidra+tutorial+game+hacking",
+    "type": "video",
+    "description": "Community video tutorials for Ghidra reverse engineering.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["ghidra", "youtube", "tutorial"],
+    "rating": 4
+  },
+  {
+    "id": "res-intel-sdm",
+    "title": "Intel Software Developer Manual",
+    "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html",
+    "type": "documentation",
+    "description": "Official Intel architecture reference for x86/x64 instruction set.",
+    "difficulty": "advanced",
+    "cost": "free",
+    "tags": ["cpu", "x86", "reference"],
+    "rating": 5
+  },
+  {
+    "id": "res-ms-docs",
+    "title": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/",
+    "type": "documentation",
+    "description": "Official Microsoft documentation for Win32, C++, and Windows internals.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["microsoft", "windows", "documentation"],
+    "rating": 5
+  },
+  {
+    "id": "res-assaultcube",
+    "title": "AssaultCube",
+    "url": "https://assault.cubers.net/",
+    "type": "github",
+    "description": "Open source FPS — ideal practice target for memory analysis labs.",
+    "difficulty": "beginner",
+    "cost": "free",
+    "tags": ["practice-target", "open-source", "fps"],
+    "rating": 4
+  },
+  {
+    "id": "res-paper-anticheat",
+    "title": "Anti-Cheat Research Papers",
+    "url": "https://scholar.google.com/scholar?q=game+anti-cheat+detection",
+    "type": "paper",
+    "description": "Academic research on game anti-cheat and cheat detection methods.",
+    "difficulty": "advanced",
+    "cost": "free",
+    "tags": ["research", "anti-cheat", "papers"],
+    "rating": 4
+  }
+]

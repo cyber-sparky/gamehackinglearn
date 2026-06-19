@@ -1,0 +1,933 @@
+{
+  "id": "foundation",
+  "slug": "foundation",
+  "title": "Foundation",
+  "description": "Core computer science and game internals knowledge required before reverse engineering games.",
+  "icon": "Layers",
+  "order": 1,
+  "topics": [
+    {
+      "id": "how-games-work",
+      "title": "How Games Work Internally",
+      "slug": "how-games-work",
+      "description": "Understand the game loop, rendering pipeline, and core subsystems.",
+      "explanation": "Games are real-time interactive applications built around a **game loop** that processes input, updates simulation state, and renders frames. Each frame typically follows: poll input → update physics/AI → render graphics → present to screen.\n\nKey subsystems include:\n- **Input handling** — keyboard, mouse, controller via OS APIs\n- **Simulation** — game logic, physics, AI running at fixed or variable timesteps\n- **Rendering** — draw calls through DirectX/OpenGL/Vulkan to GPU\n- **Audio** — sound mixing and playback\n- **Networking** — client-server or peer-to-peer communication in multiplayer titles\n\nUnderstanding this architecture helps you know *where* to look when analyzing a game binary — whether in the render loop, entity update functions, or network packet handlers.",
+      "learningPath": [
+        "Read the overview and core concepts for How Games Work Internally",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 3,
+      "tags": [
+        "fundamentals",
+        "architecture",
+        "game-loop"
+      ],
+      "resources": [
+        {
+          "id": "handmade-hero",
+          "title": "Handmade Hero Series",
+          "url": "https://handmadehero.org/",
+          "type": "course",
+          "description": "Build a game from scratch to understand internals",
+          "difficulty": "intermediate",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "github-sdl-game",
+          "title": "SDL2 Game Examples",
+          "url": "https://github.com/Ravencwow/SDL2-Game-Engine-Tutorials",
+          "type": "github",
+          "description": "Open source game engine tutorials",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [
+        {
+          "id": "yt-game-loop",
+          "title": "Game Engine Architecture — GDC Talks",
+          "url": "https://www.youtube.com/results?search_query=game+engine+architecture+gdc",
+          "type": "video",
+          "description": "Collection of GDC talks on engine design",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "documentation": [
+        {
+          "id": "gamedev-loop",
+          "title": "Game Programming Patterns — Game Loop",
+          "url": "https://gameprogrammingpatterns.com/game-loop.html",
+          "type": "documentation",
+          "description": "Classic explanation of game loop patterns",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "valve-source",
+          "title": "Source Engine Architecture Overview",
+          "url": "https://developer.valvesoftware.com/wiki/Source",
+          "type": "documentation",
+          "description": "Real-world engine architecture reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Draw a diagram of the game loop for a FPS vs an RTS",
+        "Identify which subsystems handle player health in a multiplayer game",
+        "Trace one frame from input to screen output conceptually"
+      ]
+    },
+    {
+      "id": "game-engines-intro",
+      "title": "Game Engines Overview",
+      "slug": "game-engines-intro",
+      "description": "Survey major engines and their reverse engineering surface areas.",
+      "explanation": "Game engines provide abstractions over graphics, physics, scripting, and asset management. Each engine exposes different analysis surfaces:\n\n| Engine | Key RE Surface |\n|--------|---------------|\n| **Unity** | Mono/IL2CPP managed code, asset bundles |\n| **Unreal** | UObject reflection, Blueprint VM, SDK layout |\n| **Source** | Entity system, networked vars, datamaps |\n| **Custom C++** | Direct vtables, manual memory management |\n\nWhen approaching an unknown game, identifying the engine (via strings, DLLs, or tools like Detect It Easy) immediately narrows your tooling and methodology.",
+      "learningPath": [
+        "Read the overview and core concepts for Game Engines Overview",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [
+        "how-games-work"
+      ],
+      "estimatedHours": 4,
+      "tags": [
+        "engines",
+        "unity",
+        "unreal",
+        "source"
+      ],
+      "resources": [
+        {
+          "id": "engine-detect",
+          "title": "Detect It Easy",
+          "url": "https://github.com/horsicq/Detect-It-Easy",
+          "type": "tool",
+          "description": "Identify packers, compilers, and engine signatures",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "unity-manual",
+          "title": "Unity Manual",
+          "url": "https://docs.unity3d.com/Manual/index.html",
+          "type": "documentation",
+          "description": "Official Unity documentation",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "ue-docs",
+          "title": "Unreal Engine Documentation",
+          "url": "https://docs.unrealengine.com/",
+          "type": "documentation",
+          "description": "Official Unreal documentation",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining Game Engines Overview in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "process-memory",
+      "title": "Process Memory",
+      "slug": "process-memory",
+      "description": "How operating systems organize and protect process memory.",
+      "explanation": "Each running game exists as a **process** with its own virtual address space. The OS maps this space into regions:\n\n- **Code (.text)** — executable instructions, typically read/execute\n- **Data (.data/.bss)** — global and static variables\n- **Heap** — dynamic allocations (malloc/new)\n- **Stack** — function call frames and local variables\n- **Mapped modules** — DLLs loaded at specific base addresses\n\nTools like Process Hacker, VMMap, and Cheat Engine's memory viewer let you inspect these regions. Understanding memory layout is foundational for static/dynamic analysis and debugging.",
+      "learningPath": [
+        "Read the overview and core concepts for Process Memory",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 5,
+      "tags": [
+        "memory",
+        "process",
+        "windows"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [
+        {
+          "id": "yt-process-mem",
+          "title": "Windows Process Memory Layout",
+          "url": "https://www.youtube.com/results?search_query=windows+process+memory+layout",
+          "type": "video",
+          "description": "Visual explanations of address space",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "documentation": [
+        {
+          "id": "ms-memory",
+          "title": "Windows Memory Management",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/memory/memory-management",
+          "type": "documentation",
+          "description": "Microsoft docs on virtual memory",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "ce-docs",
+          "title": "Cheat Engine Memory Scanning",
+          "url": "https://wiki.cheatengine.org/",
+          "type": "documentation",
+          "description": "Practical memory reading guide",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Use VMMap to inspect a simple game's memory regions",
+        "Identify the base address of game.exe and its main DLLs",
+        "Compare virtual vs physical memory concepts in writing"
+      ]
+    },
+    {
+      "id": "cpu-architecture",
+      "title": "CPU Architecture",
+      "slug": "cpu-architecture",
+      "description": "Fundamentals of how CPUs execute instructions and manage state.",
+      "explanation": "Modern CPUs fetch, decode, and execute machine instructions from memory. Key concepts:\n\n- **Registers** — fast storage inside the CPU (RAX, RBX, etc. on x64)\n- **Instruction pointer (RIP)** — address of next instruction\n- **Flags** — zero, carry, overflow flags set by arithmetic\n- **Pipelines & caches** — performance optimizations affecting timing\n\nReverse engineers must read disassembly fluently. Every high-level construct (if/else, loops, classes) compiles down to these primitives.",
+      "learningPath": [
+        "Read the overview and core concepts for CPU Architecture",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "cpu",
+        "architecture",
+        "fundamentals"
+      ],
+      "resources": [
+        {
+          "id": "godbolt",
+          "title": "Compiler Explorer (Godbolt)",
+          "url": "https://godbolt.org/",
+          "type": "tool",
+          "description": "See C++ compile to assembly live",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "intel-manual",
+          "title": "Intel SDM Volume 1",
+          "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html",
+          "type": "documentation",
+          "description": "Official Intel architecture manual",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "amd-manual",
+          "title": "AMD64 Architecture Manual",
+          "url": "https://www.amd.com/en/support/tech-docs",
+          "type": "documentation",
+          "description": "AMD64 reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining CPU Architecture in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "x86",
+      "title": "x86 (32-bit) Architecture",
+      "slug": "x86",
+      "description": "32-bit Intel architecture specifics relevant to legacy games.",
+      "explanation": "x86 uses 32-bit registers (EAX, EBX, ECX, EDX, ESI, EDI, EBP, ESP) and 32-bit addresses. Many older games and some current titles still ship x86 binaries.\n\nKey differences from x64:\n- Smaller address space (4 GB user-mode)\n- Different calling convention defaults (often `__stdcall`/`__cdecl`)\n- No R8-R15 extended registers\n\nLegacy MMOs, indie games, and injected DLLs frequently target x86. Tools like x32dbg handle 32-bit debugging.",
+      "learningPath": [
+        "Read the overview and core concepts for x86 (32-bit) Architecture",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "cpu-architecture"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "x86",
+        "32-bit",
+        "assembly"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "x86-guide",
+          "title": "x86 Assembly Guide",
+          "url": "https://www.cs.virginia.edu/~evans/cs216/guides/x86.html",
+          "type": "documentation",
+          "description": "University x86 reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Identify 32-bit vs 64-bit PE files using PE-bear",
+        "Debug a 32-bit crackme in x32dbg",
+        "Convert between 32-bit and 64-bit register names"
+      ]
+    },
+    {
+      "id": "x64",
+      "title": "x64 (64-bit) Architecture",
+      "slug": "x64",
+      "description": "Modern 64-bit Windows calling conventions and register usage.",
+      "explanation": "x64 Windows uses the **Microsoft x64 calling convention**:\n- First 4 integer args: RCX, RDX, R8, R9\n- Additional args on stack\n- Caller allocates 32-byte shadow space\n- RAX for return values; RIP-relative addressing common\n\nMost modern AAA games are x64. Understanding this convention lets you trace function calls in disassemblers and set breakpoints on API wrappers.",
+      "learningPath": [
+        "Read the overview and core concepts for x64 (64-bit) Architecture",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "x86",
+        "calling-conventions"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "x64",
+        "64-bit",
+        "assembly"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-x64-abi",
+          "title": "Microsoft x64 Calling Convention",
+          "url": "https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention",
+          "type": "documentation",
+          "description": "Official ABI documentation",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Trace a WinAPI call in x64dbg and identify register arguments",
+        "Use Godbolt to compare x86 vs x64 codegen for same C++ function",
+        "Document shadow space usage in 3 real functions"
+      ]
+    },
+    {
+      "id": "assembly-basics",
+      "title": "Assembly Basics",
+      "slug": "assembly-basics",
+      "description": "Essential x86/x64 instructions for reading disassembly.",
+      "explanation": "Core instruction categories every RE should know:\n\n**Data movement:** `mov`, `lea`, `push`, `pop`\n**Arithmetic:** `add`, `sub`, `imul`, `idiv`\n**Logic:** `and`, `or`, `xor`, `not`, `shl`, `shr`\n**Control flow:** `jmp`, `je/jne`, `call`, `ret`\n**Comparison:** `cmp`, `test`\n\nPractice reading small functions: prologue → body → epilogue. Recognize compiler patterns for if/else, loops, and switch statements.",
+      "learningPath": [
+        "Read the overview and core concepts for Assembly Basics",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "cpu-architecture",
+        "x86"
+      ],
+      "estimatedHours": 10,
+      "tags": [
+        "assembly",
+        "disassembly"
+      ],
+      "resources": [
+        {
+          "id": "crackmes",
+          "title": "Crackmes.one",
+          "url": "https://crackmes.one/",
+          "type": "course",
+          "description": "Beginner reverse engineering challenges",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [
+        "lab-assembly-intro"
+      ],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "felix-cloutier",
+          "title": "x86 Instruction Reference",
+          "url": "https://www.felixcloutier.com/x86/",
+          "type": "documentation",
+          "description": "Comprehensive instruction reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining Assembly Basics in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "windows-internals-intro",
+      "title": "Windows Internals Introduction",
+      "slug": "windows-internals-intro",
+      "description": "Core Windows OS concepts for user-mode analysis.",
+      "explanation": "Windows provides the environment games run in. Key structures:\n\n- **PEB** (Process Environment Block) — process info, loaded modules\n- **TEB** (Thread Environment Block) — thread-local storage, stack limits\n- **Handles** — kernel object references (files, mutexes, threads)\n- **NTDLL** — syscalls gateway to kernel\n\nGames interact with Windows via Win32 APIs (kernel32, user32) which ultimately call into ntdll. Understanding this chain helps trace file I/O, registry access, and anti-debug checks.",
+      "learningPath": [
+        "Read the overview and core concepts for Windows Internals Introduction",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "windows",
+        "internals",
+        "peb",
+        "teb"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [
+        {
+          "id": "yt-win-internals",
+          "title": "Windows Internals Lectures",
+          "url": "https://www.youtube.com/results?search_query=windows+internals+lecture",
+          "type": "video",
+          "description": "University and conference lectures",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "documentation": [
+        {
+          "id": "win-internals",
+          "title": "Windows Internals Book",
+          "url": "https://learn.microsoft.com/en-us/sysinternals/resources/windows-internals",
+          "type": "book",
+          "description": "Russinovich's definitive reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining Windows Internals Introduction in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "pe-files",
+      "title": "PE File Format",
+      "slug": "pe-files",
+      "description": "Portable Executable structure — how Windows loads executables.",
+      "explanation": "PE files (.exe, .dll) contain:\n- **DOS Header / NT Headers** — magic, machine type, entry point\n- **Section Table** — .text, .data, .rdata, .rsrc sections\n- **Import Table** — external DLL functions used\n- **Export Table** — functions this module exposes\n- **Relocations** — ASLR fixups\n\nTools: PE-bear, CFF Explorer, dumpbin. Parsing imports reveals API usage (e.g., DirectX, Winsock). Exports identify hookable functions in DLLs.",
+      "learningPath": [
+        "Read the overview and core concepts for PE File Format",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "process-memory"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "pe",
+        "binary",
+        "format"
+      ],
+      "resources": [
+        {
+          "id": "pe-bear",
+          "title": "PE-bear",
+          "url": "https://github.com/hasherezade/pe-bear",
+          "type": "tool",
+          "description": "PE file analyzer GUI",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "pe-format",
+          "title": "Microsoft PE Format Specification",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format",
+          "type": "documentation",
+          "description": "Official PE specification",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Parse imports of a game.exe and categorize API usage",
+        "Identify the entry point and main sections",
+        "Compare PE headers of x86 vs x64 binaries"
+      ]
+    },
+    {
+      "id": "threads",
+      "title": "Threads & Concurrency",
+      "slug": "threads",
+      "description": "How games use multiple threads and synchronization.",
+      "explanation": "Modern games use multiple threads: render thread, game logic, physics, audio, networking, job systems. Synchronization via:\n- **Mutexes/Critical Sections**\n- **Events & Semaphores**\n- **Atomic operations**\n- **Lock-free structures**\n\nRace conditions and thread timing affect dynamic analysis — values may change between reads. Debuggers can switch thread context to follow execution.",
+      "learningPath": [
+        "Read the overview and core concepts for Threads & Concurrency",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 5,
+      "tags": [
+        "threads",
+        "concurrency",
+        "sync"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-threads",
+          "title": "Windows Threads Documentation",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/threads",
+          "type": "documentation",
+          "description": "Thread creation and management",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "List all threads in a running game using Process Hacker",
+        "Identify render vs logic thread in a simple engine",
+        "Explain why memory scans can return different values per scan"
+      ]
+    },
+    {
+      "id": "handles",
+      "title": "Handles & Kernel Objects",
+      "slug": "handles",
+      "description": "Windows handle table and object management.",
+      "explanation": "Handles are indirect references to kernel objects. Games use handles for:\n- Process/thread manipulation\n- File and registry access\n- Mutexes for single-instance checks\n- Named pipes for IPC\n\nHandle leak detection and handle table inspection (via Process Hacker or WinDbg) reveal resource usage patterns and anti-tamper mechanisms.",
+      "learningPath": [
+        "Read the overview and core concepts for Handles & Kernel Objects",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "windows-internals-intro"
+      ],
+      "estimatedHours": 4,
+      "tags": [
+        "handles",
+        "kernel",
+        "windows"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-handles",
+          "title": "Windows Handles Overview",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/handles-and-objects",
+          "type": "documentation",
+          "description": "Handle management docs",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining Handles & Kernel Objects in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "virtual-memory",
+      "title": "Virtual Memory",
+      "slug": "virtual-memory",
+      "description": "Paging, address translation, and memory protection.",
+      "explanation": "Virtual memory gives each process a private address space. The MMU translates virtual → physical via page tables. Protection flags:\n- **PAGE_READONLY**\n- **PAGE_READWRITE**\n- **PAGE_EXECUTE_READ**\n\nASLR randomizes load addresses. DEP/NX prevents executing data pages. Understanding protections explains why code injection targets executable regions.",
+      "learningPath": [
+        "Read the overview and core concepts for Virtual Memory",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "process-memory"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "virtual-memory",
+        "paging",
+        "aslr"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-virtual-mem",
+          "title": "Virtual Memory Functions",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/memory/virtual-memory-functions",
+          "type": "documentation",
+          "description": "VirtualAlloc, VirtualProtect APIs",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Use VMMap to view memory protection flags",
+        "Explain ASLR impact on pointer scanning",
+        "Document VirtualProtect usage in a sample DLL"
+      ]
+    },
+    {
+      "id": "dlls",
+      "title": "Dynamic Link Libraries (DLLs)",
+      "slug": "dlls",
+      "description": "DLL loading, injection concepts, and module analysis.",
+      "explanation": "DLLs are shared libraries loaded at runtime via:\n- **Static import** — listed in PE import table\n- **LoadLibrary** — dynamic loading at runtime\n- **Manual mapping** — advanced loading without LoadLibrary\n\nFor educational analysis, study how games load plugin DLLs and how module enumeration (EnumProcessModules) reveals loaded code. Focus on understanding loading mechanisms for security research.",
+      "learningPath": [
+        "Read the overview and core concepts for Dynamic Link Libraries (DLLs)",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "pe-files"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "dll",
+        "modules",
+        "loading"
+      ],
+      "resources": [
+        {
+          "id": "github-dll-tutorial",
+          "title": "DLL Tutorial Examples",
+          "url": "https://github.com/carlosrafaelgn/WindowsDllTutorial",
+          "type": "github",
+          "description": "Educational DLL examples",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-dll",
+          "title": "DLL Documentation",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-libraries",
+          "type": "documentation",
+          "description": "Microsoft DLL guide",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining Dynamic Link Libraries (DLLs) in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "apis",
+      "title": "Windows APIs (WinAPI)",
+      "slug": "apis",
+      "description": "Essential Win32 APIs encountered in game binaries.",
+      "explanation": "Games heavily use subsets of WinAPI:\n\n| Category | Common APIs |\n|----------|------------|\n| Memory | VirtualAlloc, VirtualQuery, ReadProcessMemory |\n| Process | CreateThread, OpenProcess, GetModuleHandle |\n| Graphics | DirectX COM interfaces, wgl/gl functions |\n| Input | GetAsyncKeyState, Raw Input |\n| Network | WSA*, send/recv via Winsock |\n| Debug | IsDebuggerPresent, CheckRemoteDebuggerPresent |\n\nAPI monitoring (API Monitor, x64dbg logging) reveals game behavior without source code.",
+      "learningPath": [
+        "Read the overview and core concepts for Windows APIs (WinAPI)",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "winapi",
+        "windows",
+        "api"
+      ],
+      "resources": [
+        {
+          "id": "api-monitor",
+          "title": "API Monitor",
+          "url": "http://www.rohitab.com/apimonitor",
+          "type": "tool",
+          "description": "Log WinAPI calls in running processes",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-win32",
+          "title": "Win32 API Index",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/api/",
+          "type": "documentation",
+          "description": "Complete Win32 API reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Write a summary explaining Windows APIs (WinAPI) in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "calling-conventions",
+      "title": "Calling Conventions",
+      "slug": "calling-conventions",
+      "description": "How functions pass arguments and manage the stack.",
+      "explanation": "Calling conventions define argument order, stack cleanup, and register usage:\n\n- **Microsoft x64** — RCX, RDX, R8, R9 + stack, shadow space\n- **__cdecl** — caller cleans stack, C default (x86)\n- **__stdcall** — callee cleans stack (WinAPI x86)\n- **__fastcall** — first args in ECX/EDX (x86)\n- **__vectorcall** — SIMD args in XMM registers\n\nMisidentifying conventions leads to wrong argument analysis in decompilers. Set the correct convention in Ghidra/IDA for accurate signatures.",
+      "learningPath": [
+        "Read the overview and core concepts for Calling Conventions",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "x86",
+        "stack"
+      ],
+      "estimatedHours": 5,
+      "tags": [
+        "calling-convention",
+        "abi",
+        "stack"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-calling",
+          "title": "x64 Calling Convention",
+          "url": "https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention",
+          "type": "documentation",
+          "description": "Microsoft convention details",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Identify calling convention of 5 functions in a game DLL",
+        "Fix incorrect Ghidra function signatures",
+        "Trace register arguments through 3 nested calls"
+      ]
+    },
+    {
+      "id": "stack",
+      "title": "The Stack",
+      "slug": "stack",
+      "description": "Stack frames, local variables, and return addresses.",
+      "explanation": "The stack grows downward. Each function call creates a **stack frame**:\n1. Push return address (from `call`)\n2. Push saved RBP (frame pointer)\n3. Allocate local variables (sub RSP, N)\n4. Epilogue reverses this, `ret` pops return address\n\nStack overflows, buffer overflows, and ROP chains are security topics. For RE, the stack reveals local variables, function arguments (when spilled), and call chains via backtraces.",
+      "learningPath": [
+        "Read the overview and core concepts for The Stack",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "assembly-basics"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "stack",
+        "frames",
+        "memory"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Draw stack layout during a 3-level function call",
+        "Use x64dbg to inspect stack locals",
+        "Identify stack canaries in compiled code"
+      ]
+    },
+    {
+      "id": "heap",
+      "title": "The Heap",
+      "slug": "heap",
+      "description": "Dynamic memory allocation and heap structures.",
+      "explanation": "The heap manages dynamic allocations. Windows uses:\n- **HeapAlloc/HeapFree** (process heap)\n- **malloc/free** (CRT)\n- **operator new/delete** (C++)\n\nHeap allocators (RtlHeap, jemalloc, custom pools) have internal structures. Games often use custom allocators for performance. Heap analysis helps locate object instances and understand class layouts in memory.",
+      "learningPath": [
+        "Read the overview and core concepts for The Heap",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [
+        "virtual-memory",
+        "stack"
+      ],
+      "estimatedHours": 6,
+      "tags": [
+        "heap",
+        "allocation",
+        "memory"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [
+        {
+          "id": "ms-heap",
+          "title": "Heap Functions",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/memory/heap-functions",
+          "type": "documentation",
+          "description": "Windows heap API",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "exercises": [
+        "Trace operator new in a C++ game function",
+        "Compare stack vs heap allocated objects",
+        "Use CE to find heap-allocated player structures"
+      ]
+    }
+  ]
+}

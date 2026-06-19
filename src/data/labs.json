@@ -1,0 +1,204 @@
+[
+  {
+    "id": "lab-x64dbg-intro",
+    "title": "x64dbg Introduction Lab",
+    "description": "Attach to a simple process, set breakpoints, and inspect registers and memory.",
+    "difficulty": "beginner",
+    "section": "debugging",
+    "topicId": "x64dbg",
+    "steps": [
+      "Download and install x64dbg from the official website",
+      "Open a simple target (e.g., notepad.exe or a crackme from crackmes.one)",
+      "Set a breakpoint on a WinAPI call (e.g., MessageBoxA)",
+      "Run the process and observe the breakpoint hit",
+      "Inspect RCX, RDX registers for arguments (x64 calling convention)",
+      "Step through instructions with F7/F8 and observe stack changes",
+      "Document your findings in the notes section"
+    ],
+    "objectives": [
+      "Attach a debugger to a running process",
+      "Set and hit software breakpoints",
+      "Read register values and stack memory",
+      "Understand basic stepping operations"
+    ],
+    "resources": ["x64dbg", "x64dbg-docs"],
+    "estimatedHours": 2,
+    "tags": ["debugger", "beginner", "x64dbg"]
+  },
+  {
+    "id": "lab-ce-health-scan",
+    "title": "Cheat Engine Health Scan Lab",
+    "description": "Find a player health value in AssaultCube using exact and changed-value scans.",
+    "difficulty": "beginner",
+    "section": "cheat-engine",
+    "topicId": "exact-scans",
+    "steps": [
+      "Download AssaultCube (open source FPS) from assault.cubers.net",
+      "Launch AssaultCube and attach Cheat Engine",
+      "Note your current health value in-game",
+      "Perform an exact value scan for health",
+      "Take damage and scan for decreased value",
+      "Repeat until 1-3 addresses remain",
+      "Verify by modifying the value and observing in-game change"
+    ],
+    "objectives": [
+      "Attach CE to a game process",
+      "Perform exact and changed-value scans",
+      "Identify the correct dynamic address",
+      "Understand why multiple addresses may appear"
+    ],
+    "resources": ["cheat-engine"],
+    "estimatedHours": 1,
+    "tags": ["cheat-engine", "scanning", "beginner"]
+  },
+  {
+    "id": "lab-ce-pointer",
+    "title": "Pointer Scan Lab",
+    "description": "Create a stable pointer chain to a dynamic value that survives game restarts.",
+    "difficulty": "intermediate",
+    "section": "cheat-engine",
+    "topicId": "pointer-scanning",
+    "steps": [
+      "Complete the health scan lab first to find a dynamic address",
+      "Right-click the address → Pointer scan for this address",
+      "Save the pointer map file",
+      "Restart the game and rescan pointers (filter changed paths)",
+      "Identify a stable pointer chain with module-relative base",
+      "Add a pointer entry in CE table and verify across restarts"
+    ],
+    "objectives": [
+      "Understand static base + offset pointer chains",
+      "Use CE pointer scanner effectively",
+      "Filter stable paths across sessions",
+      "Explain ASLR impact on absolute addresses"
+    ],
+    "resources": ["cheat-engine"],
+    "estimatedHours": 2,
+    "tags": ["pointers", "cheat-engine", "intermediate"]
+  },
+  {
+    "id": "lab-assembly-intro",
+    "title": "Assembly Reading Lab",
+    "description": "Analyze a simple crackme using Ghidra and x64dbg together.",
+    "difficulty": "intermediate",
+    "section": "assembly",
+    "topicId": "assembly-basics",
+    "steps": [
+      "Download a beginner crackme (level 1-2) from crackmes.one",
+      "Load in Ghidra, analyze, and locate the main/check function",
+      "Identify string references and comparison logic",
+      "Open in x64dbg and set breakpoint on the check function",
+      "Trace register values during comparison",
+      "Document the algorithm in pseudocode"
+    ],
+    "objectives": [
+      "Navigate Ghidra's disassembly and decompiler views",
+      "Correlate static and dynamic analysis",
+      "Read comparison and jump logic",
+      "Write pseudocode from assembly"
+    ],
+    "resources": ["ghidra", "x64dbg"],
+    "estimatedHours": 3,
+    "tags": ["assembly", "crackme", "intermediate"]
+  },
+  {
+    "id": "lab-memory-trace",
+    "title": "Memory Write Trace Lab",
+    "description": "Use CE to find what code writes to a game value.",
+    "difficulty": "intermediate",
+    "section": "debugging",
+    "topicId": "memory-tracing",
+    "steps": [
+      "Find a dynamic address (health/ammo) using scanning",
+      "Right-click → Find out what writes to this address",
+      "Perform the in-game action that changes the value",
+      "Analyze the writing instruction in the debugger",
+      "Trace back to the function responsible",
+      "Document the function's apparent purpose"
+    ],
+    "objectives": [
+      "Use memory write breakpoints effectively",
+      "Trace from effect to cause in code",
+      "Identify setter functions for game values",
+      "Combine CE with disassembly reading"
+    ],
+    "resources": ["cheat-engine", "x64dbg"],
+    "estimatedHours": 2,
+    "tags": ["tracing", "memory", "intermediate"]
+  },
+  {
+    "id": "lab-class-layout",
+    "title": "C++ Class Layout Lab",
+    "description": "Reverse engineer a C++ class memory layout using ReClass.NET.",
+    "difficulty": "advanced",
+    "section": "cpp-re",
+    "topicId": "classes",
+    "steps": [
+      "Find a stable object pointer in a game (entity/player)",
+      "Attach ReClass.NET to the process",
+      "Create a new class at the object address",
+      "Identify vtable pointer at offset 0",
+      "Add fields and correlate with game state changes",
+      "Export the class definition and document padding"
+    ],
+    "objectives": [
+      "Identify vtable pointers in memory",
+      "Map member variable offsets",
+      "Understand alignment and padding",
+      "Use ReClass.NET for live structure editing"
+    ],
+    "resources": ["reclass-net", "cheat-engine"],
+    "estimatedHours": 4,
+    "tags": ["cpp", "structures", "advanced"]
+  },
+  {
+    "id": "lab-packet-analysis",
+    "title": "Network Packet Analysis Lab",
+    "description": "Capture and analyze packets from an open-source multiplayer game.",
+    "difficulty": "advanced",
+    "section": "networking",
+    "topicId": "protocol-analysis",
+    "steps": [
+      "Set up an open-source multiplayer game server locally",
+      "Capture traffic with Wireshark during gameplay",
+      "Filter by UDP/TCP port used by the game",
+      "Identify repeating packet patterns for movement/actions",
+      "Correlate packet contents with game events",
+      "Document the packet header structure hypothesis"
+    ],
+    "objectives": [
+      "Capture game network traffic safely in a lab",
+      "Identify protocol patterns",
+      "Correlate bytes with game actions",
+      "Understand client-server message flow"
+    ],
+    "resources": ["wireshark"],
+    "estimatedHours": 4,
+    "tags": ["networking", "packets", "advanced"]
+  },
+  {
+    "id": "lab-pe-analysis",
+    "title": "PE File Analysis Lab",
+    "description": "Analyze a game's PE structure to map imports, exports, and sections.",
+    "difficulty": "beginner",
+    "section": "foundation",
+    "topicId": "pe-files",
+    "steps": [
+      "Select a game executable (single-player, offline)",
+      "Open in PE-bear and examine DOS/NT headers",
+      "List all imported DLLs and categorize by purpose",
+      "Identify the entry point and code section size",
+      "Check for digital signatures and ASLR/DEP flags",
+      "Write a summary of the binary's characteristics"
+    ],
+    "objectives": [
+      "Navigate PE file structure",
+      "Interpret import tables",
+      "Identify security features (ASLR, DEP)",
+      "Predict analysis approach from imports"
+    ],
+    "resources": ["pe-bear", "detect-it-easy"],
+    "estimatedHours": 1.5,
+    "tags": ["pe", "static-analysis", "beginner"]
+  }
+]

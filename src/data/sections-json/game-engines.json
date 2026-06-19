@@ -1,0 +1,302 @@
+{
+  "id": "game-engines",
+  "slug": "game-engines",
+  "title": "Game Engines",
+  "description": "Engine-specific architecture and analysis approaches.",
+  "icon": "Gamepad2",
+  "order": 9,
+  "topics": [
+    {
+      "id": "unity-il2cpp",
+      "title": "Unity IL2CPP",
+      "slug": "unity-il2cpp",
+      "description": "IL2CPP build pipeline and analysis.",
+      "explanation": "IL2CPP converts Unity scripts to C++ then native code. Analysis workflow:\n1. Locate global-metadata.dat and GameAssembly.dll\n2. Use Il2CppDumper for types/methods\n3. Load script.json in Ghidra/IDA\n4. Map managed names to native functions",
+      "learningPath": [
+        "Read the overview and core concepts for Unity IL2CPP",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 12,
+      "tags": [
+        "unity",
+        "il2cpp"
+      ],
+      "resources": [
+        {
+          "id": "il2cppdumper",
+          "title": "Il2CppDumper",
+          "url": "https://github.com/Perfare/Il2CppDumper",
+          "type": "tool",
+          "description": "Dump IL2CPP metadata",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unity IL2CPP in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "unity-mono",
+      "title": "Unity Mono",
+      "slug": "unity-mono",
+      "description": "Mono runtime analysis.",
+      "explanation": "Mono builds embed metadata in Assembly-CSharp.dll. Tools: dnSpy, ILSpy, CE Mono dissect.\n\nEasier than IL2CPP — managed code can be decompiled to readable C#.",
+      "learningPath": [
+        "Read the overview and core concepts for Unity Mono",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "unity",
+        "mono"
+      ],
+      "resources": [
+        {
+          "id": "dnspy",
+          "title": "dnSpy",
+          "url": "https://github.com/dnSpy/dnSpy",
+          "type": "tool",
+          "description": ".NET debugger and decompiler",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unity Mono in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "unity-assets",
+      "title": "Unity Asset Extraction",
+      "slug": "unity-assets",
+      "description": "Extracting and analyzing Unity assets.",
+      "explanation": "Assets in sharedassets*.assets, bundles. Tools: AssetStudio, UABE.\n\nUseful for understanding game data structures, textures, prefab hierarchies.",
+      "learningPath": [
+        "Read the overview and core concepts for Unity Asset Extraction",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "unity",
+        "assets"
+      ],
+      "resources": [
+        {
+          "id": "assetstudio",
+          "title": "AssetStudio",
+          "url": "https://github.com/Perfare/AssetStudio",
+          "type": "tool",
+          "description": "Unity asset extractor",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unity Asset Extraction in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "unreal-uobject",
+      "title": "Unreal UObject System",
+      "slug": "unreal-uobject",
+      "description": "UObject, UClass, and reflection.",
+      "explanation": "All Unreal objects inherit UObject. GNames/GObjects arrays locate class info. UProperty system describes fields.\n\nSDK generators parse these arrays for typed offsets.",
+      "learningPath": [
+        "Read the overview and core concepts for Unreal UObject System",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 15,
+      "tags": [
+        "unreal",
+        "uobject"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unreal UObject System in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "unreal-sdk",
+      "title": "Unreal SDK Generation",
+      "slug": "unreal-sdk",
+      "description": "Generating SDKs from game dumps.",
+      "explanation": "Workflow: dump GNames/GObjects → parse with dumper → generate C++ headers with offsets.\n\nUnderstand padding, inheritance, and property types for accurate layouts.",
+      "learningPath": [
+        "Read the overview and core concepts for Unreal SDK Generation",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "unreal-uobject"
+      ],
+      "estimatedHours": 10,
+      "tags": [
+        "unreal",
+        "sdk"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unreal SDK Generation in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "unreal-blueprints",
+      "title": "Unreal Blueprints",
+      "slug": "unreal-blueprints",
+      "description": "Visual scripting VM analysis.",
+      "explanation": "Blueprints compile to bytecode executed by UE VM. Harder to analyze than C++ but strings and UFunction names help locate logic.",
+      "learningPath": [
+        "Read the overview and core concepts for Unreal Blueprints",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "unreal",
+        "blueprints"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unreal Blueprints in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "source-entities",
+      "title": "Source Engine Entity System",
+      "slug": "source-entities",
+      "description": "Entities, datamaps, and netvars.",
+      "explanation": "Source uses CBaseEntity hierarchy. Datamaps describe networked fields. Netvar dumps via interfaces reveal offsets.\n\nPractice on CS:GO/TF2 open SDK references.",
+      "learningPath": [
+        "Read the overview and core concepts for Source Engine Entity System",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "source",
+        "entities"
+      ],
+      "resources": [
+        {
+          "id": "csgo-sdk",
+          "title": "CS:GO SDK (reference)",
+          "url": "https://github.com/perilouswithadeofbread/csgo-sdk",
+          "type": "github",
+          "description": "Community SDK reference",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Source Engine Entity System in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "source-networking",
+      "title": "Source Engine Networking",
+      "slug": "source-networking",
+      "description": "Net channels, prediction, and lag compensation.",
+      "explanation": "Source networking: server authority, client prediction, interpolation. Study net_graph, cl_showpos for understanding.\n\nFocus on protocol analysis for security research.",
+      "learningPath": [
+        "Read the overview and core concepts for Source Engine Networking",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [
+        "source-entities"
+      ],
+      "estimatedHours": 8,
+      "tags": [
+        "source",
+        "networking"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Source Engine Networking in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

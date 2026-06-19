@@ -1,0 +1,271 @@
+{
+  "id": "graphics",
+  "slug": "graphics",
+  "title": "Graphics Fundamentals",
+  "description": "GPU APIs, render pipelines, and graphics debugging.",
+  "icon": "Palette",
+  "order": 10,
+  "topics": [
+    {
+      "id": "directx9",
+      "title": "DirectX 9",
+      "slug": "directx9",
+      "description": "Legacy D3D9 pipeline.",
+      "explanation": "Fixed-function + programmable shaders. IDirect3DDevice9 draw calls. Still used in older games/indie titles.\n\nHook Present/EndScene for overlay research (educational).",
+      "learningPath": [
+        "Read the overview and core concepts for DirectX 9",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "directx",
+        "d3d9"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining DirectX 9 in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "directx11",
+      "title": "DirectX 11",
+      "slug": "directx11",
+      "description": "Modern D3D11 render pipeline.",
+      "explanation": "Device → DeviceContext → RenderTargetView. Constant buffers hold shader data (view matrix, etc.). Analyze CBV bindings for world-to-screen research.",
+      "learningPath": [
+        "Read the overview and core concepts for DirectX 11",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "directx",
+        "d3d11"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining DirectX 11 in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "directx12",
+      "title": "DirectX 12",
+      "slug": "directx12",
+      "description": "Low-level D3D12 command lists.",
+      "explanation": "Explicit resource barriers, descriptor heaps, command queues. More complex but better performance. PIX for profiling.",
+      "learningPath": [
+        "Read the overview and core concepts for DirectX 12",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 10,
+      "tags": [
+        "directx",
+        "d3d12"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining DirectX 12 in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "opengl",
+      "title": "OpenGL",
+      "slug": "opengl",
+      "description": "Cross-platform GL pipeline.",
+      "explanation": "Context, VBOs, shaders, uniform buffers. Used in indie games and some engines. apitrace for call capture.",
+      "learningPath": [
+        "Read the overview and core concepts for OpenGL",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "opengl"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining OpenGL in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "vulkan",
+      "title": "Vulkan",
+      "slug": "vulkan",
+      "description": "Explicit cross-platform GPU API.",
+      "explanation": "Similar philosophy to D3D12. RenderDoc supports Vulkan capture. Growing adoption in new engines.",
+      "learningPath": [
+        "Read the overview and core concepts for Vulkan",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "advanced",
+      "prerequisites": [],
+      "estimatedHours": 10,
+      "tags": [
+        "vulkan"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Vulkan in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "render-pipelines",
+      "title": "Render Pipelines",
+      "slug": "render-pipelines",
+      "description": "From scene to framebuffer.",
+      "explanation": "Stages: culling → sorting → draw calls → pixel shading → post-processing → present.\n\nFrame debugging reveals draw order, shader inputs, render targets.",
+      "learningPath": [
+        "Read the overview and core concepts for Render Pipelines",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "rendering",
+        "pipeline"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Render Pipelines in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "frame-analysis",
+      "title": "Frame Analysis",
+      "slug": "frame-analysis",
+      "description": "Capturing and analyzing rendered frames.",
+      "explanation": "Use RenderDoc or PIX:\n1. Capture frame\n2. Inspect draw events\n3. View mesh/texture/shader\n4. Trace constant buffer data\n\nEssential for understanding ESP/wallhack *detection* vectors.",
+      "learningPath": [
+        "Read the overview and core concepts for Frame Analysis",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "renderdoc",
+        "analysis"
+      ],
+      "resources": [
+        {
+          "id": "renderdoc",
+          "title": "RenderDoc",
+          "url": "https://renderdoc.org/",
+          "type": "tool",
+          "description": "Graphics debugger",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        },
+        {
+          "id": "pix",
+          "title": "PIX on Windows",
+          "url": "https://devblogs.microsoft.com/pix/",
+          "type": "tool",
+          "description": "DirectX performance tool",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Frame Analysis in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "graphics-debugging",
+      "title": "Graphics Debugging Tools",
+      "slug": "graphics-debugging",
+      "description": "Tooling for GPU debugging.",
+      "explanation": "RenderDoc — cross-API, open source\nPIX — DirectX, Microsoft\nNsight — NVIDIA\napitrace — OpenGL\n\nAll free for educational use.",
+      "learningPath": [
+        "Read the overview and core concepts for Graphics Debugging Tools",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "tools",
+        "graphics"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Graphics Debugging Tools in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}

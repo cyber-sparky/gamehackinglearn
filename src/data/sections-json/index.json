@@ -1,0 +1,119 @@
+[
+  {
+    "id": "foundation",
+    "slug": "foundation",
+    "title": "Foundation",
+    "description": "Core computer science and game internals knowledge required before reverse engineering games.",
+    "icon": "Layers",
+    "order": 1,
+    "topicCount": 17
+  },
+  {
+    "id": "cpp-re",
+    "slug": "cpp-re",
+    "title": "C++ For Reverse Engineering",
+    "description": "Modern C++ concepts essential for understanding compiled game code.",
+    "icon": "Code2",
+    "order": 2,
+    "topicCount": 9
+  },
+  {
+    "id": "reverse-engineering",
+    "slug": "reverse-engineering",
+    "title": "Reverse Engineering",
+    "description": "Static and dynamic analysis techniques for understanding binaries.",
+    "icon": "Search",
+    "order": 3,
+    "topicCount": 10
+  },
+  {
+    "id": "assembly",
+    "slug": "assembly",
+    "title": "Assembly",
+    "description": "Deep dive into x86/x64 assembly for game reverse engineering.",
+    "icon": "Cpu",
+    "order": 4,
+    "topicCount": 7
+  },
+  {
+    "id": "debugging",
+    "slug": "debugging",
+    "title": "Debugging",
+    "description": "Master debuggers for dynamic game analysis.",
+    "icon": "Bug",
+    "order": 5,
+    "topicCount": 7
+  },
+  {
+    "id": "windows-internals",
+    "slug": "windows-internals",
+    "title": "Windows Internals",
+    "description": "Deep Windows OS knowledge for security and RE research.",
+    "icon": "Monitor",
+    "order": 6,
+    "topicCount": 8
+  },
+  {
+    "id": "memory-analysis",
+    "slug": "memory-analysis",
+    "title": "Memory Analysis",
+    "description": "Techniques for reading, scanning, and interpreting game memory.",
+    "icon": "MemoryStick",
+    "order": 7,
+    "topicCount": 7
+  },
+  {
+    "id": "cheat-engine",
+    "slug": "cheat-engine",
+    "title": "Cheat Engine Mastery",
+    "description": "Complete Cheat Engine workflow for educational game analysis.",
+    "icon": "Target",
+    "order": 8,
+    "topicCount": 6
+  },
+  {
+    "id": "game-engines",
+    "slug": "game-engines",
+    "title": "Game Engines",
+    "description": "Engine-specific architecture and analysis approaches.",
+    "icon": "Gamepad2",
+    "order": 9,
+    "topicCount": 8
+  },
+  {
+    "id": "graphics",
+    "slug": "graphics",
+    "title": "Graphics Fundamentals",
+    "description": "GPU APIs, render pipelines, and graphics debugging.",
+    "icon": "Palette",
+    "order": 10,
+    "topicCount": 8
+  },
+  {
+    "id": "anti-cheat",
+    "slug": "anti-cheat",
+    "title": "Anti-Cheat Research",
+    "description": "Understanding anti-cheat architecture for defensive security research. Educational focus only — no bypass instructions.",
+    "icon": "Shield",
+    "order": 11,
+    "topicCount": 5
+  },
+  {
+    "id": "networking",
+    "slug": "networking",
+    "title": "Networking",
+    "description": "Game network protocols and packet analysis.",
+    "icon": "Network",
+    "order": 12,
+    "topicCount": 4
+  },
+  {
+    "id": "game-security",
+    "slug": "game-security",
+    "title": "Game Security Research",
+    "description": "Client trust, authority models, and secure game design.",
+    "icon": "Lock",
+    "order": 13,
+    "topicCount": 5
+  }
+]

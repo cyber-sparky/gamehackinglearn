@@ -1,0 +1,207 @@
+{
+  "id": "cheat-engine",
+  "slug": "cheat-engine",
+  "title": "Cheat Engine Mastery",
+  "description": "Complete Cheat Engine workflow for educational game analysis.",
+  "icon": "Target",
+  "order": 8,
+  "topics": [
+    {
+      "id": "exact-scans",
+      "title": "Exact Value Scans",
+      "slug": "exact-scans",
+      "description": "Finding known values in memory.",
+      "explanation": "Start with exact scan for known values (health=100, ammo=30). Change value in game, scan again. Repeat until few addresses remain.\n\nFilter by writable, exclude code regions.",
+      "learningPath": [
+        "Read the overview and core concepts for Exact Value Scans",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 3,
+      "tags": [
+        "cheat-engine",
+        "scanning"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-ce-health-scan"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Exact Value Scans in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "unknown-scans",
+      "title": "Unknown Value Scans",
+      "slug": "unknown-scans",
+      "description": "Finding values when you don't know the exact number.",
+      "explanation": "Use unknown initial value, then changed/unchanged/increased/decreased after game events. Essential for hidden stats, coordinates, timers.",
+      "learningPath": [
+        "Read the overview and core concepts for Unknown Value Scans",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "estimatedHours": 4,
+      "tags": [
+        "cheat-engine",
+        "scanning"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Unknown Value Scans in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "pointer-scanning",
+      "title": "Pointer Scanning",
+      "slug": "pointer-scanning",
+      "description": "Finding stable pointer paths.",
+      "explanation": "After finding dynamic address, run pointer scan with max level 4-7. Rescan after restart to filter stable paths. Save .PTR files for reuse.",
+      "learningPath": [
+        "Read the overview and core concepts for Pointer Scanning",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "pointers",
+        "cheat-engine"
+      ],
+      "resources": [],
+      "labs": [
+        "lab-ce-pointer"
+      ],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Pointer Scanning in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "structure-dissect",
+      "title": "Structure Dissect",
+      "slug": "structure-dissect",
+      "description": "Building data structures in CE.",
+      "explanation": "Use 'Dissect data/structures' to map fields. Change values in-game and watch offsets change. Group related fields into named structures.",
+      "learningPath": [
+        "Read the overview and core concepts for Structure Dissect",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 5,
+      "tags": [
+        "structures",
+        "cheat-engine"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Structure Dissect in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "mono-features",
+      "title": "Mono/Unity Features",
+      "slug": "mono-features",
+      "description": "Analyzing Unity Mono games in CE.",
+      "explanation": "CE Mono features:\n- Dissect mono domain\n- Browse classes and fields\n- Find instances of class types\n\nFor IL2CPP games, use Il2CppDumper + CE together.",
+      "learningPath": [
+        "Read the overview and core concepts for Mono/Unity Features",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 6,
+      "tags": [
+        "unity",
+        "mono",
+        "cheat-engine"
+      ],
+      "resources": [],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Mono/Unity Features in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    },
+    {
+      "id": "lua-scripting",
+      "title": "Lua Scripting in CE",
+      "slug": "lua-scripting",
+      "description": "Automating scans and analysis with Lua.",
+      "explanation": "CE supports Lua for automation:\n- Auto-attach and scan\n- Timer-based value monitoring\n- Custom UI forms\n\nLearn CE Lua API from wiki. Use for repetitive research tasks only.",
+      "learningPath": [
+        "Read the overview and core concepts for Lua Scripting in CE",
+        "Study official documentation and recommended articles",
+        "Complete hands-on exercises in a controlled lab environment",
+        "Apply knowledge to a simple open-source game target",
+        "Document findings and review prerequisites for advanced topics"
+      ],
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "tags": [
+        "lua",
+        "automation"
+      ],
+      "resources": [
+        {
+          "id": "ce-lua",
+          "title": "CE Lua Documentation",
+          "url": "https://wiki.cheatengine.org/",
+          "type": "documentation",
+          "description": "Cheat Engine Lua API",
+          "difficulty": "beginner",
+          "cost": "free",
+          "tags": [],
+          "rating": 4
+        }
+      ],
+      "labs": [],
+      "youtubeVideos": [],
+      "documentation": [],
+      "exercises": [
+        "Write a summary explaining Lua Scripting in CE in your own words",
+        "Create a diagram mapping key concepts and relationships",
+        "Complete one guided lab exercise related to this topic"
+      ]
+    }
+  ]
+}
