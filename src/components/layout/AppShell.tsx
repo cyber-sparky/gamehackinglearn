@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
+import { PlatformFooter } from "./PlatformFooter";
 import { cn } from "@/lib/utils";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -29,7 +30,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       <div
         className={cn(
-          "transition-all duration-300",
+          "flex min-h-screen flex-col transition-all duration-300",
           collapsed ? "lg:ml-16" : "lg:ml-64"
         )}
       >
@@ -46,7 +47,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </span>
         </div>
         <Header />
-        <main className="p-4 md:p-6">{children}</main>
+        <main className="flex flex-1 flex-col p-4 md:p-6">
+          {children}
+          <PlatformFooter />
+        </main>
       </div>
     </div>
   );

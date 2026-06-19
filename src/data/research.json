@@ -1,0 +1,77 @@
+[
+  {
+    "id": "res-anticheat-kernel",
+    "title": "How Anti-Cheats Work (Kernel Callbacks)",
+    "description": "Deep technical write-up on kernel-mode anti-cheat callback registration and detection architecture.",
+    "type": "blog",
+    "url": "https://secret.club/2020/04/13/how-anti-cheats-work.html",
+    "author": "secret.club",
+    "date": "2020-04",
+    "tags": ["Anti-Cheat Architecture", "Kernel"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "res-windows-internals-blog",
+    "title": "Windows Internals — PEB Walking",
+    "description": "Practical guide to traversing the Process Environment Block for module enumeration without API calls.",
+    "type": "blog",
+    "url": "https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/peb-process-environment-block",
+    "author": "ired.team",
+    "tags": ["Windows Internals", "PEB", "Memory Analysis"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "res-unity-il2cpp-paper",
+    "title": "IL2CPP Internals — Metadata Format",
+    "description": "Technical analysis of Unity IL2CPP global-metadata.dat structure and type resolution.",
+    "type": "whitepaper",
+    "url": "https://github.com/Perfare/Il2CppDumper/wiki",
+    "author": "Perfare",
+    "tags": ["Game Engines", "Unity"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "res-blackhat-game-hacking",
+    "title": "Black Hat — Game Security Research Talks",
+    "description": "Curated conference presentations on game security, anti-cheat, and engine analysis.",
+    "type": "conference",
+    "url": "https://www.blackhat.com/html/archives.html",
+    "tags": ["Anti-Cheat Architecture", "Game Engines"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "res-kernel-callbacks-notes",
+    "title": "Kernel Callback Research Notes",
+    "description": "Summary of PsSetCreateProcessNotifyRoutine, ObRegisterCallbacks, and image load notify routines for AC analysis.",
+    "type": "notes",
+    "tags": ["Kernel", "Anti-Cheat Architecture", "Windows Internals"],
+    "difficulty": "expert"
+  },
+  {
+    "id": "res-unreal-gobjects",
+    "title": "Unreal Engine GObjects/GNames Analysis",
+    "description": "Community research on locating and parsing Unreal Engine global object arrays in shipped games.",
+    "type": "blog",
+    "url": "https://github.com/guttir14/UnrealDumper-4.25",
+    "tags": ["Game Engines", "Unreal"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "res-memory-forensics",
+    "title": "Memory Forensics for Game Analysis",
+    "description": "Techniques for volatile memory analysis applicable to live game process research.",
+    "type": "whitepaper",
+    "url": "https://www.volatilityfoundation.org/",
+    "tags": ["Memory Analysis", "Windows Internals"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "res-network-protocol-re",
+    "title": "Reverse Engineering Network Protocols",
+    "description": "Methodology for capturing, correlating, and mapping game network packet structures.",
+    "type": "blog",
+    "url": "https://www.wireshark.org/docs/wsug_html_chunked/",
+    "tags": ["Networking", "Memory Analysis"],
+    "difficulty": "intermediate"
+  }
+]

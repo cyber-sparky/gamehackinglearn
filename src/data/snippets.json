@@ -1,0 +1,102 @@
+[
+  {
+    "id": "snippet-read-process-memory",
+    "title": "ReadProcessMemory Wrapper",
+    "description": "Read bytes from a target process using WinAPI ReadProcessMemory with error checking.",
+    "category": "Memory Reading",
+    "language": "cpp",
+    "code": "#include <windows.h>\n#include <iostream>\n#include <vector>\n\nbool ReadMemory(HANDLE hProcess, uintptr_t address, void* buffer, size_t size) {\n    SIZE_T bytesRead = 0;\n    if (!ReadProcessMemory(hProcess, reinterpret_cast<LPCVOID>(address),\n                          buffer, size, &bytesRead)) {\n        std::cerr << \"ReadProcessMemory failed: \" << GetLastError() << \"\\n\";\n        return false;\n    }\n    return bytesRead == size;\n}\n\n// Usage: attach to process, then read 4 bytes at address\nint main() {\n    DWORD pid = 1234; // target PID\n    HANDLE hProc = OpenProcess(PROCESS_VM_READ, FALSE, pid);\n    if (!hProc) return 1;\n\n    int value = 0;\n    uintptr_t addr = 0x7FF612340000;\n    if (ReadMemory(hProc, addr, &value, sizeof(value)))\n        std::cout << \"Value: \" << value << \"\\n\";\n\n    CloseHandle(hProc);\n    return 0;\n}",
+    "tags": ["winapi", "memory", "readprocessmemory"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "snippet-module-base",
+    "title": "Get Module Base Address",
+    "description": "Enumerate process modules with Toolhelp32 to find a DLL base address.",
+    "category": "WinAPI",
+    "language": "cpp",
+    "code": "#include <windows.h>\n#include <tlhelp32.h>\n#include <string>\n\nuintptr_t GetModuleBase(DWORD pid, const wchar_t* moduleName) {\n    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid);\n    if (snap == INVALID_HANDLE_VALUE) return 0;\n\n    MODULEENTRY32W me{};\n    me.dwSize = sizeof(me);\n    if (Module32FirstW(snap, &me)) {\n        do {\n            if (_wcsicmp(me.szModule, moduleName) == 0) {\n                CloseHandle(snap);\n                return reinterpret_cast<uintptr_t>(me.modBaseAddr);\n            }\n        } while (Module32NextW(snap, &me));\n    }\n    CloseHandle(snap);\n    return 0;\n}",
+    "tags": ["winapi", "module", "enumeration"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "snippet-aob-scan",
+    "title": "Pattern (AOB) Scanner",
+    "description": "Scan a memory region for a byte pattern with wildcard support (?? bytes).",
+    "category": "Pattern Scanning",
+    "language": "cpp",
+    "code": "#include <vector>\n#include <optional>\n#include <cstdint>\n\nstd::optional<uintptr_t> PatternScan(\n    const uint8_t* region, size_t regionSize,\n    const char* pattern, const char* mask)\n{\n    size_t patLen = strlen(mask);\n    for (size_t i = 0; i + patLen <= regionSize; ++i) {\n        bool found = true;\n        for (size_t j = 0; j < patLen; ++j) {\n            if (mask[j] == 'x' && region[i + j] != static_cast<uint8_t>(pattern[j])) {\n                found = false;\n                break;\n            }\n        }\n        if (found) return reinterpret_cast<uintptr_t>(region + i);\n    }\n    return std::nullopt;\n}\n\n// Example: scan for \"48 8B 05 ?? ?? ?? ?? 48 85 C0\"\n// mask:    \"xxx????xxx\"",
+    "tags": ["pattern", "aob", "signature"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "snippet-pe-parse-dos",
+    "title": "Parse PE DOS Header",
+    "description": "Validate MZ signature and read e_lfanew to locate NT headers.",
+    "category": "PE Parsing",
+    "language": "cpp",
+    "code": "#include <windows.h>\n#include <cstdint>\n\nbool ValidatePE(const uint8_t* base) {\n    auto dos = reinterpret_cast<const IMAGE_DOS_HEADER*>(base);\n    if (dos->e_magic != IMAGE_DOS_SIGNATURE) // \"MZ\"\n        return false;\n\n    auto nt = reinterpret_cast<const IMAGE_NT_HEADERS*>(base + dos->e_lfanew);\n    if (nt->Signature != IMAGE_NT_SIGNATURE) // \"PE\"\n        return false;\n\n    return true;\n}\n\nuint32_t GetImageSize(const uint8_t* base) {\n    auto dos = reinterpret_cast<const IMAGE_DOS_HEADER*>(base);\n    auto nt = reinterpret_cast<const IMAGE_NT_HEADERS*>(base + dos->e_lfanew);\n    return nt->OptionalHeader.SizeOfImage;\n}",
+    "tags": ["pe", "parser", "headers"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "snippet-vtable-index",
+    "title": "Read Virtual Function from VTable",
+    "description": "Dereference object pointer to vtable and call function at index N.",
+    "category": "C++",
+    "language": "cpp",
+    "code": "// Given object pointer at runtime:\n// object -> vtable -> function pointers\n\ntemplate<typename Ret, typename... Args>\nRet CallVFunc(void* object, int index, Args... args) {\n    auto vtable = *reinterpret_cast<uintptr_t**>(object);\n    auto func = reinterpret_cast<Ret(*)(void*, Args...)>(vtable[index]);\n    return func(object, args...);\n}\n\n// Example: read vtable[3] without calling\nuintptr_t GetVFuncAddress(void* object, int index) {\n    auto vtable = *reinterpret_cast<uintptr_t**>(object);\n    return vtable[index];\n}",
+    "tags": ["cpp", "vtable", "classes"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "snippet-dll-inject-loadlibrary",
+    "title": "Remote LoadLibrary Injection",
+    "description": "Educational pattern: allocate path in remote process and call LoadLibraryA via CreateRemoteThread.",
+    "category": "DLL Analysis",
+    "language": "cpp",
+    "code": "// EDUCATIONAL / LAB USE ONLY — isolated VM required\n#include <windows.h>\n\nbool InjectDLL(HANDLE hProcess, const char* dllPath) {\n    size_t pathLen = strlen(dllPath) + 1;\n    void* remoteMem = VirtualAllocEx(hProcess, nullptr, pathLen,\n                                     MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);\n    if (!remoteMem) return false;\n\n    WriteProcessMemory(hProcess, remoteMem, dllPath, pathLen, nullptr);\n\n    auto loadLib = reinterpret_cast<LPTHREAD_START_ROUTINE>(\n        GetProcAddress(GetModuleHandleA(\"kernel32.dll\"), \"LoadLibraryA\"));\n\n    HANDLE hThread = CreateRemoteThread(hProcess, nullptr, 0, loadLib, remoteMem, 0, nullptr);\n    if (!hThread) return false;\n\n    WaitForSingleObject(hThread, INFINITE);\n    CloseHandle(hThread);\n    VirtualFreeEx(hProcess, remoteMem, 0, MEM_RELEASE);\n    return true;\n}",
+    "tags": ["dll", "injection", "loadlibrary"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "snippet-x64-call-convention",
+    "title": "x64 Microsoft Calling Convention",
+    "description": "Reference for register argument order in x64 Windows ABI.",
+    "category": "Assembly Examples",
+    "language": "asm",
+    "code": "; x64 Microsoft calling convention (Windows)\n; First 4 integer/pointer args: RCX, RDX, R8, R9\n; Additional args on stack (right-to-left)\n; Return value in RAX (or XMM0 for floats)\n; Caller must reserve 32 bytes shadow space before CALL\n; Callee-saved: RBX, RBP, RDI, RSI, R12-R15\n\n; Example: MessageBoxA(hwnd, \"text\", \"title\", MB_OK)\n; RCX = hwnd\n; RDX = lpText\n; R8  = lpCaption\n; R9  = uType (0)",
+    "tags": ["assembly", "x64", "calling-convention"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "snippet-hardware-breakpoint",
+    "title": "Set Hardware Breakpoint (DR Registers)",
+    "description": "Use debug registers DR0-DR3 for execute breakpoints without patching code.",
+    "category": "Debugging Helpers",
+    "language": "cpp",
+    "code": "#include <windows.h>\n\n// Set DR0 to break on execution at address (current thread context)\nbool SetHWBreakpoint(HANDLE hThread, uintptr_t address, int drIndex = 0) {\n    CONTEXT ctx{};\n    ctx.ContextFlags = CONTEXT_DEBUG_REGISTERS;\n    if (!GetThreadContext(hThread, &ctx)) return false;\n\n    switch (drIndex) {\n        case 0: ctx.Dr0 = address; break;\n        case 1: ctx.Dr1 = address; break;\n        case 2: ctx.Dr2 = address; break;\n        case 3: ctx.Dr3 = address; break;\n        default: return false;\n    }\n    // Enable local breakpoint: L0-L3 bits in Dr7\n    ctx.Dr7 |= (1 << (drIndex * 2));       // local enable\n    ctx.Dr7 &= ~(0xF << (16 + drIndex * 4)); // clear condition\n    // 00 = break on execution\n\n    return SetThreadContext(hThread, &ctx);\n}",
+    "tags": ["debugging", "breakpoint", "dr-registers"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "snippet-export-resolve",
+    "title": "Manual Export Table Resolution",
+    "description": "Resolve a function address from PE export directory without LoadLibrary.",
+    "category": "Reverse Engineering Helpers",
+    "language": "cpp",
+    "code": "#include <windows.h>\n#include <cstring>\n\nFARPROC GetExportByName(uint8_t* moduleBase, const char* funcName) {\n    auto dos = reinterpret_cast<IMAGE_DOS_HEADER*>(moduleBase);\n    auto nt = reinterpret_cast<IMAGE_NT_HEADERS*>(moduleBase + dos->e_lfanew);\n    auto& exportDir = nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT];\n    if (!exportDir.VirtualAddress) return nullptr;\n\n    auto exports = reinterpret_cast<IMAGE_EXPORT_DIRECTORY*>(\n        moduleBase + exportDir.VirtualAddress);\n    auto names = reinterpret_cast<DWORD*>(moduleBase + exports->AddressOfNames);\n    auto ordinals = reinterpret_cast<WORD*>(moduleBase + exports->AddressOfNameOrdinals);\n    auto functions = reinterpret_cast<DWORD*>(moduleBase + exports->AddressOfFunctions);\n\n    for (DWORD i = 0; i < exports->NumberOfNames; ++i) {\n        const char* name = reinterpret_cast<const char*>(moduleBase + names[i]);\n        if (strcmp(name, funcName) == 0) {\n            DWORD rva = functions[ordinals[i]];\n            return reinterpret_cast<FARPROC>(moduleBase + rva);\n        }\n    }\n    return nullptr;\n}",
+    "tags": ["pe", "exports", "manual-map"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "snippet-ntquery-info",
+    "title": "NtQueryInformationProcess — PEB Address",
+    "description": "Query process basic information to get PEB address from ntdll syscall.",
+    "category": "WinAPI",
+    "language": "cpp",
+    "code": "#include <windows.h>\n#include <winternl.h>\n\n// Link with ntdll or use direct syscall in research VMs\ntypedef NTSTATUS(NTAPI* NtQueryInformationProcess_t)(\n    HANDLE, PROCESSINFOCLASS, PVOID, ULONG, PULONG);\n\nuintptr_t GetPebAddress(HANDLE hProcess) {\n    PROCESS_BASIC_INFORMATION pbi{};\n    auto NtQueryInformationProcess = reinterpret_cast<NtQueryInformationProcess_t>(\n        GetProcAddress(GetModuleHandleA(\"ntdll.dll\"), \"NtQueryInformationProcess\"));\n    if (!NtQueryInformationProcess) return 0;\n\n    NTSTATUS status = NtQueryInformationProcess(\n        hProcess, ProcessBasicInformation, &pbi, sizeof(pbi), nullptr);\n    if (status != 0) return 0;\n    return reinterpret_cast<uintptr_t>(pbi.PebBaseAddress);\n}",
+    "tags": ["ntdll", "peb", "syscall"],
+    "difficulty": "advanced"
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "skill-assembly",
+      "label": "Assembly",
+      "description": "Read and understand x86/x64 disassembly fluently.",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "sectionSlug": "assembly",
+      "topicId": "instructions"
+    },
+    {
+      "id": "skill-re",
+      "label": "Reverse Engineering",
+      "description": "Static and dynamic binary analysis workflows.",
+      "difficulty": "intermediate",
+      "prerequisites": ["skill-assembly"],
+      "sectionSlug": "reverse-engineering",
+      "topicId": "static-analysis"
+    },
+    {
+      "id": "skill-debugging",
+      "label": "Debugging",
+      "description": "Breakpoints, tracing, and runtime analysis.",
+      "difficulty": "intermediate",
+      "prerequisites": ["skill-re"],
+      "sectionSlug": "debugging",
+      "topicId": "x64dbg"
+    },
+    {
+      "id": "skill-windows",
+      "label": "Windows Internals",
+      "description": "PEB, syscalls, processes, and kernel concepts.",
+      "difficulty": "advanced",
+      "prerequisites": ["skill-debugging"],
+      "sectionSlug": "windows-internals",
+      "topicId": "syscalls"
+    },
+    {
+      "id": "skill-memory",
+      "label": "Memory Analysis",
+      "description": "Scanning, pointers, structures, and pattern matching.",
+      "difficulty": "intermediate",
+      "prerequisites": ["skill-debugging"],
+      "sectionSlug": "memory-analysis",
+      "topicId": "structures"
+    },
+    {
+      "id": "skill-engines",
+      "label": "Engine Internals",
+      "description": "Unity, Unreal, and game engine analysis.",
+      "difficulty": "advanced",
+      "prerequisites": ["skill-re", "skill-memory"],
+      "sectionSlug": "game-engines",
+      "topicId": "unity-il2cpp"
+    },
+    {
+      "id": "skill-graphics",
+      "label": "Graphics Analysis",
+      "description": "DirectX pipeline and render debugging.",
+      "difficulty": "intermediate",
+      "prerequisites": ["skill-re"],
+      "sectionSlug": "graphics",
+      "topicId": "directx11"
+    },
+    {
+      "id": "skill-networking",
+      "label": "Network Analysis",
+      "description": "Packet capture and protocol reverse engineering.",
+      "difficulty": "intermediate",
+      "prerequisites": ["skill-re"],
+      "sectionSlug": "networking",
+      "topicId": "protocol-analysis"
+    },
+    {
+      "id": "skill-anticheat",
+      "label": "Anti-Cheat Research",
+      "description": "User-mode and kernel-mode AC architecture.",
+      "difficulty": "expert",
+      "prerequisites": ["skill-windows"],
+      "sectionSlug": "anti-cheat",
+      "topicId": "kernelmode-ac"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "vid-ghidra-intro",
+    "title": "Ghidra Beginner Tutorial — Full Course",
+    "description": "Complete introduction to Ghidra: importing binaries, navigation, decompiler, and scripting basics.",
+    "topic": "Ghidra",
+    "difficulty": "beginner",
+    "youtubeUrl": "https://www.youtube.com/watch?v=fTGTnrgjuGA",
+    "duration": "2:15:00",
+    "tags": ["ghidra", "static-analysis", "decompiler"]
+  },
+  {
+    "id": "vid-x64dbg-basics",
+    "title": "x64dbg Tutorial for Beginners",
+    "description": "Attach, breakpoints, stepping, memory map, and patching instructions in x64dbg.",
+    "topic": "x64dbg",
+    "difficulty": "beginner",
+    "youtubeUrl": "https://www.youtube.com/watch?v=EMpS4CKj8kE",
+    "duration": "45:00",
+    "tags": ["x64dbg", "debugger", "dynamic-analysis"]
+  },
+  {
+    "id": "vid-assembly-x64",
+    "title": "x64 Assembly Crash Course",
+    "description": "Registers, instructions, stack frames, and calling conventions for Windows x64.",
+    "topic": "Assembly",
+    "difficulty": "beginner",
+    "youtubeUrl": "https://www.youtube.com/watch?v=75gBFiFtAb8",
+    "duration": "1:30:00",
+    "tags": ["assembly", "x64", "fundamentals"]
+  },
+  {
+    "id": "vid-windows-internals",
+    "title": "Windows Internals — Processes and Threads",
+    "description": "Deep dive into EPROCESS, ETHREAD, and process creation from a researcher perspective.",
+    "topic": "Windows Internals",
+    "difficulty": "advanced",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DGpawJkRze0",
+    "duration": "1:00:00",
+    "tags": ["windows", "kernel", "processes"]
+  },
+  {
+    "id": "vid-unity-il2cpp",
+    "title": "Unity IL2CPP Reverse Engineering",
+    "description": "Dumping IL2CPP metadata, using Il2CppDumper, and analyzing generated C++ pseudocode.",
+    "topic": "Unity",
+    "difficulty": "advanced",
+    "youtubeUrl": "https://www.youtube.com/watch?v=7pOMiE7dwH0",
+    "duration": "55:00",
+    "tags": ["unity", "il2cpp", "game-engine"]
+  },
+  {
+    "id": "vid-unreal-sdk",
+    "title": "Unreal Engine SDK Generation",
+    "description": "GObjects, GNames, and generating SDK headers from Unreal Engine games.",
+    "topic": "Unreal",
+    "difficulty": "advanced",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KqJNi9k6d0Y",
+    "duration": "40:00",
+    "tags": ["unreal", "sdk", "game-engine"]
+  },
+  {
+    "id": "vid-renderdoc",
+    "title": "Graphics Debugging with RenderDoc",
+    "description": "Capturing frames, inspecting draw calls, shaders, and GPU buffers.",
+    "topic": "Graphics",
+    "difficulty": "intermediate",
+    "youtubeUrl": "https://www.youtube.com/watch?v=3J9kpEYqYH4",
+    "duration": "35:00",
+    "tags": ["renderdoc", "graphics", "gpu"]
+  },
+  {
+    "id": "vid-wireshark-game",
+    "title": "Game Network Packet Analysis",
+    "description": "Capturing and analyzing game traffic with Wireshark filters and protocol dissection.",
+    "topic": "Networking",
+    "difficulty": "intermediate",
+    "youtubeUrl": "https://www.youtube.com/watch?v=TkCSr30UojM",
+    "duration": "50:00",
+    "tags": ["wireshark", "networking", "packets"]
+  },
+  {
+    "id": "vid-anticheat-arch",
+    "title": "Anti-Cheat Architecture Overview",
+    "description": "How kernel and user-mode anti-cheat systems work — detection methods and architecture.",
+    "topic": "Anti-Cheat Architecture",
+    "difficulty": "advanced",
+    "youtubeUrl": "https://www.youtube.com/watch?v=8uYbQG3jK0E",
+    "duration": "1:10:00",
+    "tags": ["anti-cheat", "kernel", "security"]
+  },
+  {
+    "id": "vid-windbg-kernel",
+    "title": "WinDbg Kernel Debugging Setup",
+    "description": "Configure VM kernel debugging with WinDbg for driver and anti-cheat research.",
+    "topic": "Windows Internals",
+    "difficulty": "expert",
+    "youtubeUrl": "https://www.youtube.com/watch?v=4l0K3bK8K0E",
+    "duration": "1:20:00",
+    "tags": ["windbg", "kernel", "debugging"]
+  }
+]

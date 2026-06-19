@@ -1,7 +1,7 @@
-import type { Section } from "@/types";
+import type { RawSection } from "@/types";
 import { res, topicTemplate } from "../helpers";
 
-export const cheatEngineSection: Section = {
+export const cheatEngineSection: RawSection = {
   id: "cheat-engine",
   slug: "cheat-engine",
   title: "Cheat Engine Mastery",

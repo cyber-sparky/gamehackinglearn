@@ -1,0 +1,135 @@
+[
+  {
+    "id": "path-beginner-re",
+    "slug": "beginner-reverse-engineer",
+    "title": "Beginner Reverse Engineer",
+    "description": "Start from zero: CPU basics, assembly, debugging, and your first static analysis workflow.",
+    "difficulty": "beginner",
+    "estimatedHours": 80,
+    "prerequisites": [],
+    "modules": [
+      { "id": "m1", "title": "How Games Work", "sectionSlug": "foundation", "topicId": "how-games-work", "estimatedHours": 4 },
+      { "id": "m2", "title": "Process Memory", "sectionSlug": "foundation", "topicId": "process-memory", "estimatedHours": 5 },
+      { "id": "m3", "title": "PE Files", "sectionSlug": "foundation", "topicId": "pe-files", "estimatedHours": 6 },
+      { "id": "m4", "title": "Assembly Basics", "sectionSlug": "foundation", "topicId": "assembly-basics", "estimatedHours": 8 },
+      { "id": "m5", "title": "x86/x64 Instructions", "sectionSlug": "assembly", "topicId": "instructions", "estimatedHours": 10 },
+      { "id": "m6", "title": "x64dbg Introduction", "sectionSlug": "debugging", "topicId": "x64dbg", "estimatedHours": 6 },
+      { "id": "m7", "title": "Static Analysis", "sectionSlug": "reverse-engineering", "topicId": "static-analysis", "estimatedHours": 8 },
+      { "id": "m8", "title": "Function Analysis", "sectionSlug": "reverse-engineering", "topicId": "function-analysis", "estimatedHours": 8 }
+    ]
+  },
+  {
+    "id": "path-windows-internals",
+    "slug": "windows-internals-engineer",
+    "title": "Windows Internals Engineer",
+    "description": "Deep Windows OS knowledge: processes, syscalls, PEB/TEB, drivers, and kernel debugging.",
+    "difficulty": "advanced",
+    "estimatedHours": 120,
+    "prerequisites": ["path-beginner-re"],
+    "modules": [
+      { "id": "m1", "title": "Windows APIs", "sectionSlug": "foundation", "topicId": "apis", "estimatedHours": 8 },
+      { "id": "m2", "title": "Processes", "sectionSlug": "windows-internals", "topicId": "processes", "estimatedHours": 6 },
+      { "id": "m3", "title": "PEB", "sectionSlug": "windows-internals", "topicId": "peb", "estimatedHours": 6 },
+      { "id": "m4", "title": "TEB", "sectionSlug": "windows-internals", "topicId": "teb", "estimatedHours": 4 },
+      { "id": "m5", "title": "System Calls", "sectionSlug": "windows-internals", "topicId": "syscalls", "estimatedHours": 8 },
+      { "id": "m6", "title": "Drivers", "sectionSlug": "windows-internals", "topicId": "drivers", "estimatedHours": 15 },
+      { "id": "m7", "title": "Kernel Basics", "sectionSlug": "windows-internals", "topicId": "kernel-basics", "estimatedHours": 12 },
+      { "id": "m8", "title": "WinDbg", "sectionSlug": "debugging", "topicId": "windbg", "estimatedHours": 15 }
+    ]
+  },
+  {
+    "id": "path-memory-analysis",
+    "slug": "memory-analysis-specialist",
+    "title": "Memory Analysis Specialist",
+    "description": "From Cheat Engine scans to structure mapping, pointer chains, and pattern scanning.",
+    "difficulty": "intermediate",
+    "estimatedHours": 60,
+    "prerequisites": [],
+    "modules": [
+      { "id": "m1", "title": "Process Memory", "sectionSlug": "foundation", "topicId": "process-memory", "estimatedHours": 5 },
+      { "id": "m2", "title": "Exact Scans", "sectionSlug": "cheat-engine", "topicId": "exact-scans", "estimatedHours": 4 },
+      { "id": "m3", "title": "Pointer Scanning", "sectionSlug": "cheat-engine", "topicId": "pointer-scanning", "estimatedHours": 6 },
+      { "id": "m4", "title": "Memory Tracing", "sectionSlug": "debugging", "topicId": "memory-tracing", "estimatedHours": 6 },
+      { "id": "m5", "title": "Structures", "sectionSlug": "memory-analysis", "topicId": "structures", "estimatedHours": 10 },
+      { "id": "m6", "title": "Pattern Scanning", "sectionSlug": "memory-analysis", "topicId": "pattern-scanning", "estimatedHours": 6 }
+    ]
+  },
+  {
+    "id": "path-unity",
+    "slug": "unity-researcher",
+    "title": "Unity Researcher",
+    "description": "Analyze Unity games: Mono managed code, IL2CPP native builds, and asset extraction.",
+    "difficulty": "intermediate",
+    "estimatedHours": 50,
+    "prerequisites": ["path-beginner-re"],
+    "modules": [
+      { "id": "m1", "title": "Game Engines Intro", "sectionSlug": "foundation", "topicId": "game-engines-intro", "estimatedHours": 4 },
+      { "id": "m2", "title": "Unity Mono", "sectionSlug": "game-engines", "topicId": "unity-mono", "estimatedHours": 8 },
+      { "id": "m3", "title": "Unity IL2CPP", "sectionSlug": "game-engines", "topicId": "unity-il2cpp", "estimatedHours": 12 },
+      { "id": "m4", "title": "Unity Assets", "sectionSlug": "game-engines", "topicId": "unity-assets", "estimatedHours": 4 }
+    ]
+  },
+  {
+    "id": "path-unreal",
+    "slug": "unreal-researcher",
+    "title": "Unreal Researcher",
+    "description": "Unreal Engine analysis: UObject system, GNames/GObjects, and SDK generation.",
+    "difficulty": "advanced",
+    "estimatedHours": 55,
+    "prerequisites": ["path-beginner-re"],
+    "modules": [
+      { "id": "m1", "title": "Game Engines Intro", "sectionSlug": "foundation", "topicId": "game-engines-intro", "estimatedHours": 4 },
+      { "id": "m2", "title": "Unreal UObject System", "sectionSlug": "game-engines", "topicId": "unreal-uobject", "estimatedHours": 8 },
+      { "id": "m3", "title": "Unreal UObject", "sectionSlug": "game-engines", "topicId": "unreal-uobject", "estimatedHours": 10 },
+      { "id": "m4", "title": "Unreal SDK", "sectionSlug": "game-engines", "topicId": "unreal-sdk", "estimatedHours": 12 }
+    ]
+  },
+  {
+    "id": "path-anticheat",
+    "slug": "anti-cheat-researcher",
+    "title": "Anti-Cheat Researcher",
+    "description": "Understand anti-cheat architecture for defensive security research — user-mode and kernel-mode.",
+    "difficulty": "expert",
+    "estimatedHours": 90,
+    "prerequisites": ["path-windows-internals"],
+    "modules": [
+      { "id": "m1", "title": "User-Mode Anti-Cheats", "sectionSlug": "anti-cheat", "topicId": "usermode-ac", "estimatedHours": 8 },
+      { "id": "m2", "title": "Integrity Checks", "sectionSlug": "anti-cheat", "topicId": "integrity-checks", "estimatedHours": 6 },
+      { "id": "m3", "title": "Detection Techniques", "sectionSlug": "anti-cheat", "topicId": "detection-techniques", "estimatedHours": 10 },
+      { "id": "m4", "title": "Kernel-Mode Anti-Cheats", "sectionSlug": "anti-cheat", "topicId": "kernelmode-ac", "estimatedHours": 15 },
+      { "id": "m5", "title": "Driver Communication", "sectionSlug": "anti-cheat", "topicId": "driver-communication", "estimatedHours": 8 }
+    ]
+  },
+  {
+    "id": "path-malware",
+    "slug": "malware-analyst",
+    "title": "Malware Analyst",
+    "description": "Static and dynamic malware analysis skills applicable to game security research.",
+    "difficulty": "advanced",
+    "estimatedHours": 100,
+    "prerequisites": ["path-beginner-re"],
+    "modules": [
+      { "id": "m1", "title": "Static Analysis", "sectionSlug": "reverse-engineering", "topicId": "static-analysis", "estimatedHours": 8 },
+      { "id": "m2", "title": "Import Tables", "sectionSlug": "reverse-engineering", "topicId": "import-tables", "estimatedHours": 8 },
+      { "id": "m3", "title": "Export Tables", "sectionSlug": "reverse-engineering", "topicId": "export-tables", "estimatedHours": 6 },
+      { "id": "m4", "title": "Dynamic Analysis", "sectionSlug": "reverse-engineering", "topicId": "dynamic-analysis", "estimatedHours": 8 },
+      { "id": "m5", "title": "Decompilers & Obfuscation", "sectionSlug": "reverse-engineering", "topicId": "decompilers", "estimatedHours": 10 }
+    ]
+  },
+  {
+    "id": "path-kernel",
+    "slug": "kernel-researcher",
+    "title": "Kernel Researcher",
+    "description": "Ring 0 research: drivers, callbacks, IOCTL analysis, and kernel debugging.",
+    "difficulty": "expert",
+    "estimatedHours": 110,
+    "prerequisites": ["path-windows-internals"],
+    "modules": [
+      { "id": "m1", "title": "Drivers", "sectionSlug": "windows-internals", "topicId": "drivers", "estimatedHours": 15 },
+      { "id": "m2", "title": "Kernel Basics", "sectionSlug": "windows-internals", "topicId": "kernel-basics", "estimatedHours": 12 },
+      { "id": "m3", "title": "WinDbg Kernel", "sectionSlug": "debugging", "topicId": "windbg", "estimatedHours": 15 },
+      { "id": "m4", "title": "Kernel-Mode AC", "sectionSlug": "anti-cheat", "topicId": "kernelmode-ac", "estimatedHours": 15 },
+      { "id": "m5", "title": "Driver Communication", "sectionSlug": "anti-cheat", "topicId": "driver-communication", "estimatedHours": 8 }
+    ]
+  }
+]

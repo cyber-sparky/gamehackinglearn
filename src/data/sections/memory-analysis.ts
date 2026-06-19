@@ -1,7 +1,7 @@
-import type { Section } from "@/types";
+import type { RawSection } from "@/types";
 import { res, topicTemplate } from "../helpers";
 
-export const memoryAnalysisSection: Section = {
+export const memoryAnalysisSection: RawSection = {
   id: "memory-analysis",
   slug: "memory-analysis",
   title: "Memory Analysis",

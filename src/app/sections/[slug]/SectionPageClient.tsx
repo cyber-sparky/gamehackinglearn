@@ -8,6 +8,8 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import { useProgress } from "@/lib/hooks";
 import { getSectionProgress } from "@/data";
 import { formatHours } from "@/lib/utils";
+import { downloadSectionCertificate } from "@/lib/certificate";
+import { Award } from "lucide-react";
 
 export function SectionPageClient({ section }: { section: Section }) {
   const { progress, loaded } = useProgress();
@@ -35,6 +37,10 @@ export function SectionPageClient({ section }: { section: Section }) {
     ? getSectionProgress(section.slug, progress.completedTopics)
     : 0;
 
+  const completedCount = section.topics.filter((t) =>
+    progress.completedTopics.includes(t.id)
+  ).length;
+
   const totalHours = section.topics.reduce((s, t) => s + t.estimatedHours, 0);
 
   return (
@@ -50,6 +56,16 @@ export function SectionPageClient({ section }: { section: Section }) {
         <div className="mt-4 max-w-md">
           <ProgressBar value={sectionProgress} />
         </div>
+      )}
+      {loaded && sectionProgress === 100 && (
+        <button
+          type="button"
+          onClick={() => downloadSectionCertificate(section, completedCount)}
+          className="mt-4 inline-flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/5 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/10"
+        >
+          <Award className="h-4 w-4" />
+          Download section certificate
+        </button>
       )}
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[280px_1fr]">
@@ -68,14 +84,7 @@ export function SectionPageClient({ section }: { section: Section }) {
         />
         <div className="grid gap-4 md:grid-cols-2">
           {filtered.map((topic) => (
-            <TopicCard
-              key={topic.id}
-              topic={topic}
-              sectionSlug={section.slug}
-              completed={
-                loaded && progress.completedTopics.includes(topic.id)
-              }
-            />
+            <TopicCard key={topic.id} topic={topic} sectionSlug={section.slug} />
           ))}
           {filtered.length === 0 && (
             <p className="col-span-full text-center text-muted py-12">
